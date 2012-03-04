@@ -2,7 +2,7 @@ package com.moandjiezana.bootstrapjamon.base.buttons;
 
 import com.moandjiezana.bootstrapjamon.base.IconColors;
 
-public enum ButtonStyle {
+public enum ButtonStyles {
   primary, info, success, warning, danger, inverse, none {
     @Override
     public String toString() {
