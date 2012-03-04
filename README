@@ -1,4 +1,9 @@
-A Bootstrap library for the Jamon templating engine. View documentation at http://mwanji.github.com/bootstrap-jamon
+A Bootstrap library for the Jamon templating engine. View documentation at https://mwanji.github.com/bootstrap-jamon
+
+The repository contains two Maven projects: 
+
+- bootstrap-jamon, in /lib, is the library itself
+- bootstrap-jamon-doc, in /doc, is the documentation site, written using bootstrap-jamon.
 
 TODO:
 Base:
