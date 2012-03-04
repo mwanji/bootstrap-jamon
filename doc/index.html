@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/jquery-1.7.1.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+<link rel="stylesheet" href="css/bootstrap.css"/>
+<link rel="stylesheet" href="css/bootstrap-responsive.css"/>
+    <style>
+        section {
+            padding-top: 40px;
+        }
+        @media (max-width: 980px) {
+            #overview {
+                padding-top: 0;
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+</a>
+        <a class="brand" href="#overview">
+  Bootstrap-Jamon
+</a>
+        <div class="nav-collapse">
+	        <ul class="nav">
+	            <li>
+    <a href="#aliases">Aliases</a>
+</li>
+	            <li>
+    <a href="#scaffolding">Scaffolding</a>
+</li>
+	            <li>
+    <a href="#base">Base</a>
+</li>
+	            <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Components<b class="caret"></b></a>
+    <ul class="dropdown-menu">
+    
+	                <li>
+    <a href="#components-navigation">Navigation</a>
+</li>
+	            
+    </ul>
+</li>
+	        </ul>
+        </div>
+    
+        </div>
+    </div>
+</div>
+    <div class="container">
+
+        
+        <section id="overview">
+            <div class="page-header"><h1>Overview</h1></div>
+                <div class="row">
+
+                    <div class="span7">
+
+                        <p>Bootstrap-Jamon is a set of <a href="http://twitter.github.com/bootstrap">Bootstrap</a>-aware helpers for the <a href="http://www.jamon.org">Jamon</a> templating engine.</p>
+                        <p>It is not a general purpose HTML library. It only eliminates the most boilerplate-heavy parts of Bootstrap.
+                        In fact, it does not cover every single possibility, but only those where it can significantly reduce the amount of code.</p>
+                        <p>Bootstrap-Jamon is currently based on Bootstrap 2.0.1</p>
+                     
+</div>
+                    <div class="span4 offset1">
+
+                        <a href="http://github.com/mwanji/bootstrap-jamon" class="btn btn-primary btn-large">View source on Github</a>
+                        <p class="help-block">
+                            This documentation is itself written in Bootstrap-Jamon and is a good source of examples.
+                        </p>
+                     
+</div>
+                
+</div>
+        </section>
+        
+        <section id="aliases">
+            <div class="page-header"><h1>Aliases</h1></div>
+                <div class="row">
+
+                    <div class="span12">
+
+                        <p>The raw template paths can get quite long. Here are some recommended aliases you can copy into
+                        your template files or jamon.properties.</p>
+                        <p>These aliases will be used throughout the documentation.</p>
+                     
+</div>
+                
+</div>
+                <div class="row">
+
+                    <div class="span6">
+
+                        For template files:
+<pre>
+&lt;%alias&gt;
+bs=/com/moandjiezana/bootstrapjamon;
+base=bs//base;
+s=bs//scaffolding;
+n=bs//components/navigation;
+b=bs//base/buttons;
+&lt;/%alias&gt;
+</pre>
+                     
+</div>
+                    <div class="span6">
+
+                        For jamon.properties:
+<pre>
+org.jamon.alias.bs=/com/moandjiezana/bootstrapjamon;
+org.jamon.alias.base=bs//base;
+org.jamon.alias.s=bs//scaffolding;
+org.jamon.alias.n=bs//components/navigation;
+org.jamon.alias.b=bs//base/buttons;
+</pre>
+                     
+</div>
+                
+</div>
+        </section>
+        
+        <section id="scaffolding">
+            <div class="page-header"><h1>Scaffolding</h1></div>
+                <h2>include</h2>
+                <p>
+                    For use in the <code>&lt;head&gt;</code>, includes Bootstrap's CSS and JS.
+                </p>
+                <table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Attribute</th>
+            <th>Default</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+                    <tr>
+                        <td>bootstrapPath</td>
+                        <td>""</td>
+                        <td>
+                            The root path to Bootstrap's assets. The css, js and img folders should be found here.
+                            The default will point to the current folder.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>cssFileName</td>
+                        <td>"bootstrap"</td>
+                        <td>The file name to which .css will be appended.</td>
+                    </tr>
+                    <tr>
+                        <td>jsFileName</td>
+                        <td>"bootstrap"</td>
+                        <td>The file name to which .js will be appended.</td>
+                    </tr>
+                    <tr>
+                        <td>responsive</td>
+                        <td>false</td>
+                        <td>If true, bootstrap-responsive.css will be included.</td>
+                    </tr>
+                
+    </tbody>
+</table>
+
+                <h2>row</h2>
+                <table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Attribute</th>
+            <th>Default</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+                    <tr>
+                        <td>fluid</td>
+                        <td>false</td>
+                        <td>Uses row class when false, row-fluid when true.</td>
+                    </tr>
+                    <tr>
+                        <td>extraClasses</td>
+                        <td>""</td>
+                        <td>Arbitrary CSS classes.</td>
+                    </tr>
+                
+    </tbody>
+</table>
+
+                <h2>span1 - span12</h2>
+                <p>Convenience templates with pre-defined sizes.</p>
+                <table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Attribute</th>
+            <th>Default</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+                    <tr>
+                        <td>offset</td>
+                        <td>0</td>
+                        <td>The size of the offset class to use, if greater than 0.</td>
+                    </tr>
+                    <tr>
+                        <td>extraClasses</td>
+                        <td>""</td>
+                        <td>Arbitrary CSS classes.</td>
+                    </tr>
+                
+    </tbody>
+</table>
+
+                <h2>span</h2>
+                Template for use only on grids with more than 12 columns.
+                <table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Attribute</th>
+            <th>Default</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+                    <tr>
+                        <td>size</td>
+                        <td>12</td>
+                        <td>The size of the span class to use.</td>
+                    </tr>
+                    <tr>
+                        <td>offset</td>
+                        <td>0</td>
+                        <td>The size of the offset class to use, if greater than 0.</td>
+                    </tr>
+                    <tr>
+                        <td>extraClasses</td>
+                        <td>""</td>
+                        <td>Arbitrary CSS classes.</td>
+                    </tr>
+                
+    </tbody>
+</table>
+
+                <h2>Examples</h2>
+                <div class="row">
+
+                    <div class="span6">
+
+                        Input:
+<pre>
+&lt;&amp;| s//row &amp;&gt;
+    &lt;&amp;| s//span &amp;&gt;
+        // content...
+    &lt;/&amp;&gt;
+&lt;/&amp;&gt;
+&lt;&amp;| s//row; fluid=true &amp;&gt;
+    &lt;&amp;| s//span4; offset=3 &amp;&gt;
+        // content...
+    &lt;/&amp;&gt;
+    &lt;&amp;| s//span5; extraClasses="custom-class" &amp;&gt;
+        // content...
+    &lt;/&amp;&gt;
+&lt;/&amp;&gt;
+</pre>
+                     
+</div>
+                    <div class="span6">
+
+                    Output:
+<pre>
+&lt;div class="row"&gt;
+    &lt;div class="span12"&gt;
+        // content...
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row-fluid"&gt;
+    &lt;div class="span4 offset3"&gt;
+        // content...
+    &lt;/div&gt;
+    &lt;div class="span5 custom-class"&gt;
+        // content...
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>                    
+                     
+</div>
+                
+</div>
+        </section>
+        
+        <section id="base">
+            <div class="page-header"><h1>Base</h1></div>
+            <h1>Buttons</h1>
+            <h2>a</h2>
+            <p>The a template turns a link into a button.</p>
+            <h3>Examples</h3>
+            <table class="table table-bordered table-striped">
+                <tbody>
+                    <tr valign="center">
+                        <td class="span3">
+                           <a href="#" class="btn">Default</a>
+                        </td>
+                        <td class="span9">
+<pre>
+&lt;&amp;|  b//a; href="#" &amp;&gt;Default&lt;/&amp;&gt;
+</pre>
+
+                        </td>
+                    </tr>
+                    <tr>
+                       <td>
+                           <a href="#" class="btn btn-primary">Primary</a>
+                       </td>
+                       <td>
+                           Use the <a href="http://github.com/mwanji/bootstrap-jamon/ButtonStyles.java">ButtonStyles</a>
+ enum to apply a look to your button. The enum names match
+                           Bootstrap&apos;s CSS classes. 
+<pre>
+&lt;&amp;| b//a; href="#"; style=ButtonStyle.primary &amp;&gt;Primary&lt;/&amp;&gt;
+</pre>
+
+                       </td>
+                    </tr>
+                    <tr>
+                       <td>
+                           <a href="#" class="btn btn-mini">mini</a>
+                       </td>
+                       <td>
+                           Use the <a href="http://github.com/mwanji/bootstrap-jamon/ButtonSizes.java">ButtonSizes</a>
+ enum to change the size. The enum names match
+                           Bootstrap&apos;s CSS classes. 
+<pre>
+&lt;&amp;| b//a; href="#"; size=ButtonSizes.mini &amp;&gt;mini&lt;/&amp;&gt;
+</pre>
+
+                       </td>
+                    </tr>
+                    <tr>
+                       <td>
+                        <a href="#" class="btn span3">span3</a>
+                       </td>
+                       <td>
+                            Arbitrary sizes can be used via the extraClasses attribute.
+<pre>
+&lt;&amp;| b//a; href="#"; label="Primary"; extraClasses="span3" &amp;&gt;span3&lt;/&amp;&gt;
+</pre>
+
+                       </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>icon</h2>
+            All icons are available from the <a href="http://github.com/mwanji/bootstrap-jamon/Icons.java">Icons</a>
+ enum.
+            <table class="table table-bordered table-striped">
+                <tbody>
+                    <tr>
+                        <td class="span3">
+                            <i class="icon-map-marker"></i> 
+                        </td>
+                        <td class="span9">
+<pre>
+&lt;&amp; base//icon; icon=Icons.map_marker &amp;&gt;
+</pre>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="span3">
+                            <a href="#" class="btn"><i class="icon-edit"></i>  button</a>
+                        </td>
+                        <td class="span9">
+<pre>
+&lt;&amp;| b//a; href="#" &>&lt;&amp; base//icon; icon=Icons.edit &amp;&gt; button&lt;/&amp;&gt;
+</pre>
+                     
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h1>Forms</h1>
+            <h2>prepend</h2>
+            <div class="input-prepend">
+    <span class="add-on">eg</span><input />
+</div>
+            <table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Attribute</th>
+            <th>Default</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+                <tr>
+                    <td>text</td>
+                    <td>&nbsp;</td>
+                    <td>The appended text</td>
+                </tr>
+            
+    </tbody>
+</table>
+
+            <h2>append</h2>
+            <div class="input-append">
+    <input /><span class="add-on">eg</span>
+</div>
+            <table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Attribute</th>
+            <th>Default</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+                <tr>
+                    <td>text</td>
+                    <td>&nbsp;</td>
+                    <td>The appended text</td>
+                </tr>
+            
+    </tbody>
+</table>
+
+        </section>
+        
+        <section id="components">
+            <div class="page-header"><h1>Components</h1></div>
+                <div class="row">
+
+                    <div class="span12">
+
+                            
+                     
+</div>
+                
+</div>
+        </section>
+        <section id="components-navigation">
+            <h1>Navigation</h1>
+            <h2>navbar</h2>
+            <table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Attribute</th>
+            <th>Default</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+                <tr>
+                    <td>fixedTop</td>
+                    <td>false</td>
+                    <td>If true, adds the <code>.navbar-fixed-top</code> class.</td>
+                </tr>
+            
+    </tbody>
+</table>
+
+            <h2>dropdown</h2>
+            The outer part of the dropdown menu. The body of the template becomes the body of the inner <code>&lt;ul&gt;</code>.
+            <table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Attribute</th>
+            <th>Default</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+                <tr>
+                    <td>label</td>
+                    <td>&nbsp;</td>
+                    <td>The text of the dropdown's header.</td>
+                </tr>
+                <tr>
+                    <td>jsAuto</td>
+                    <td>true</td>
+                    <td>If true, will be activated via JavaScript on page load.</td>
+                </tr>
+                <tr>
+                    <td>href</td>
+                    <td>"#"</td>
+                    <td>The header's href attribute.</td>
+                </tr>
+            
+    </tbody>
+</table>
+
+            <h2>navLink</h2>
+            A list item that contains a link. 
+            <table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Attribute</th>
+            <th>Default</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+                <tr>
+                    <td>href</td>
+                    <td>&nbsp;</td>
+                    <td>The link's href attribute.</td>
+                </tr>
+                <tr>
+                    <td>active</td>
+                    <td>false</td>
+                    <td>If true, adds the active class to the list item.</td>
+                </tr>
+            
+    </tbody>
+</table>
+
+            <h2>navbarToggle</h2>
+            The default menu toggle button for responsive nav bars.
+            <table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Attribute</th>
+            <th>Default</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+                <tr>
+                    <td>target</td>
+                    <td>".nav-collapse"</td>
+                    <td>The value of the data-target attribute.</td>
+                </tr>
+            
+    </tbody>
+</table>
+
+        </section>
+    
+</div>
+  </body>
+</html>
+        
+        <section id="scaffolding">
+            <div class="page-header"><h1>Scaffolding</h1></div>
+                <div class="row">
+
+                    <div class="span12">
+
+                            
+                     
+</div>
+                
+</div>
+        </section>

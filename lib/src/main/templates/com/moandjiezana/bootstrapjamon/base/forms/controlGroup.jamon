@@ -1,0 +1,22 @@
+<%frag controls />
+<%args>
+String label;
+String extraClasses = "";
+String forId = "";
+boolean error = false;
+States state = States.none;
+String helpInline = "";
+String helpBlock = "";
+</%args>
+<div class="control-group<% state %><%if !extraClasses.isEmpty() %> extraClasses</%if>">
+    <label class="control-label" for="<% forId %>"><% label %></label>
+    <div class="controls">
+        <& controls &>
+        <%if !helpInline.isEmpty() %>
+            <span class="help-inline"><% helpInline %></span>
+        </%if>
+        <%if !helpBlock.isEmpty() %>
+            <p class="help-block"><% helpBlock %></span>
+        </%if>
+    </div>
+</div>

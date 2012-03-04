@@ -1,0 +1,7 @@
+<%frag content />
+<%args>
+boolean fluid = false;
+</%args>
+<div class="container<%if fluid %>-fluid</%if>">
+<& content &>
+</div>

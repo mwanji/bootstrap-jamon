@@ -1,0 +1,7 @@
+<%frag content />
+<%args>
+String text;
+</%args>
+<div class="input-append">
+    <& content &><span class="add-on"><% text %></span>
+</div>

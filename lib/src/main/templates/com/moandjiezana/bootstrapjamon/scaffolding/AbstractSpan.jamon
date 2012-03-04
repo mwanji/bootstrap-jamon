@@ -1,0 +1,12 @@
+<%abstract>
+<%frag content />
+<%args>
+int size = 0;
+int offset = 0;
+String extraClasses = "";
+</%args>
+<div class="span<% size %>\
+<%if offset > 0 %> offset<% offset %></%if>\
+<%if !extraClasses.isEmpty() %> <% extraClasses %></%if>">
+<& content &> 
+</div>

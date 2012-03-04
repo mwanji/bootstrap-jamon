@@ -1,0 +1,10 @@
+<%args>
+String bootstrapPath = "";
+String cssFileName = "bootstrap";
+String jsFileName = "bootstrap";
+boolean responsive = false;
+</%args>
+<%java String fullBootstrapPath = !bootstrapPath.isEmpty() ? bootstrapPath + "/" : ""; %>
+<script type="text/javascript" src="<% fullBootstrapPath %>js/<% jsFileName %>.js"></script>
+<link rel="stylesheet" href="<% fullBootstrapPath %>css/<% cssFileName %>.css"/>
+<%if responsive %><link rel="stylesheet" href="<% fullBootstrapPath %>css/<% cssFileName %>-responsive.css"/></%if>

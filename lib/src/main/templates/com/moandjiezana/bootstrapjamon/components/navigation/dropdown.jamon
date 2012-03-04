@@ -1,0 +1,12 @@
+<%frag content />
+<%args>
+String label;
+boolean jsAuto = true;
+String href = "#";
+</%args>
+<li class="dropdown">
+    <a href="<% href %>" class="dropdown-toggle"<%if jsAuto %> data-toggle="dropdown"</%if>><% label %><b class="caret"></b></a>
+    <ul class="dropdown-menu">
+    <& content &>
+    </ul>
+</li>

@@ -1,0 +1,7 @@
+<%import>
+</%import>
+<%args>
+Icons icon;
+boolean white = false;
+</%args>
+<i class="<% icon %><%if white %> icon-white</%if>"></i> 

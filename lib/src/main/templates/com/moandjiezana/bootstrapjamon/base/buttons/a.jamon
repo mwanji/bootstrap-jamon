@@ -1,0 +1,14 @@
+<%import>
+</%import>
+<%frag content />
+<%args>
+String href;
+ButtonStyle style = ButtonStyle.none;
+ButtonSizes size = ButtonSizes.none;
+boolean disabled = false;
+String extraClasses = "";
+</%args> 
+<a href="<% href %>" class="btn<% style %><% size %>\
+<%if disabled %> disabled</%if>\
+<%if !extraClasses.isEmpty() %> <% extraClasses %></%if>"\
+><& content &></a>

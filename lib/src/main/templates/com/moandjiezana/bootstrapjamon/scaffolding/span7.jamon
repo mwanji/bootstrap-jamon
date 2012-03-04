@@ -1,0 +1,4 @@
+<%extends AbstractSpan>
+<%xargs>
+size = 7;
+</%xargs>

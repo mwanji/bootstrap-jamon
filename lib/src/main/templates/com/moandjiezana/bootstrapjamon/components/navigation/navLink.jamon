@@ -1,0 +1,8 @@
+<%frag content />
+<%args>
+String href;
+boolean active = false;
+</%args>
+<li<%if active %> class="active"</%if>>
+    <a href="<% href %>"><& content &></a>
+</li>

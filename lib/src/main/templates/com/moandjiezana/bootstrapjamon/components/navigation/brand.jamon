@@ -1,0 +1,7 @@
+<%frag content />
+<%args>
+String href="#";
+</%args>
+<a class="brand" href="<% href %>">
+  <& content &>
+</a>

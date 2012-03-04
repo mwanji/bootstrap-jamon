@@ -1,0 +1,34 @@
+<%alias>
+bs=/com/moandjiezana/bootstrapjamon;
+base=bs//base;
+s=bs//scaffolding;
+b=bs//base/buttons;
+f=bs//base/forms;
+</%alias>
+<%import>
+com.moandjiezana.bootstrapjamon.base.*;
+com.moandjiezana.bootstrapjamon.base.buttons.*;
+com.moandjiezana.bootstrapjamon.base.forms.*;
+</%import>
+<html>
+    <head>
+	<& s//include; responsive=true; &>
+    </head> 
+<body>
+<&| s//container &>
+	<&| s//row &>
+	    <&| s//span; size=6 &>
+	        <&| f//prepend; text="ss" &><input type="text" /></&> 
+	        <&| b//a; href="path"; &><& base//icon; icon=Icons.edit &> </&>
+	    </&>
+	    
+	    <&| s//span; size=6; &>
+            <&| f//append; text="ss" &><input type="text" /></&> 
+	        <form class="form-horizontal">
+	        <& f//input; label="Field"; inputName="field"; inputId="fieldId"; state=States.error; inputExtraClasses="input-medium"; helpInline="help test"; helpBlock="help block" &>
+	        </form>
+	    </&>
+	</&>
+</&>
+</body>
+</html>
