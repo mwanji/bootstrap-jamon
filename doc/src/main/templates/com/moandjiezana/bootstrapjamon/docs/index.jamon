@@ -22,7 +22,7 @@ final String close = "</&>";
 <%args>
 String url;
 </%args>
-<a href="http://github.com/mwanji/bootstrap-jamon/<% url %>"><& content &></a>
+<a href="http://github.com/mwanji/bootstrap-jamon/blob/master/lib/src/main/java/com/moandjiezana/bootstrapjamon/<% url %>"><& content &></a>
 </%def>
 <%def preSimple>
     <%frag content />
@@ -95,7 +95,7 @@ String url;
                         <p>Bootstrap-Jamon is currently based on Bootstrap 2.0.1</p>
                     </&>
                     <&| s//span4; offset=1 &>
-                        <&| b//a; href="http://github.com/mwanji/bootstrap-jamon"; style=ButtonStyle.primary; size=ButtonSizes.large &>View source on Github</&>
+                        <&| b//a; href="http://github.com/mwanji/bootstrap-jamon"; style=ButtonStyles.primary; size=ButtonSizes.large &>View source on Github</&>
                         <p class="help-block">
                             This documentation is itself written in Bootstrap-Jamon and is a good source of examples.
                         </p>
@@ -274,10 +274,10 @@ org.jamon.alias.b=bs//base/buttons;
                     </tr>
                     <tr>
                        <td>
-                           <&| b//a; href="#"; style=ButtonStyle.primary &>Primary</&>
+                           <&| b//a; href="#"; style=ButtonStyles.primary &>Primary</&>
                        </td>
                        <td>
-                           Use the <&| repo; url="ButtonStyles.java" &>ButtonStyles</&> enum to apply a look to your button. The enum names match
+                           Use the <&| repo; url="base/buttons/ButtonStyles.java" &>ButtonStyles</&> enum to apply a look to your button. The enum names match
                            Bootstrap&apos;s CSS classes. 
 <&| preFrag; &>b//a; href="#"; style=ButtonStyle.primary <% ampGt %>Primary</&>
                        </td>
@@ -287,7 +287,7 @@ org.jamon.alias.b=bs//base/buttons;
                            <&| b//a; href="#"; size=ButtonSizes.mini &>mini</&>
                        </td>
                        <td>
-                           Use the <&| repo; url="ButtonSizes.java" &>ButtonSizes</&> enum to change the size. The enum names match
+                           Use the <&| repo; url="base/buttons/ButtonSizes.java" &>ButtonSizes</&> enum to change the size. The enum names match
                            Bootstrap&apos;s CSS classes. 
 <&| preFrag; &>b//a; href="#"; size=ButtonSizes.mini <% ampGt %>mini</&>
                        </td>
@@ -304,7 +304,7 @@ org.jamon.alias.b=bs//base/buttons;
                 </tbody>
             </table>
             <h2>icon</h2>
-            All icons are available from the <&| repo; url="Icons.java" &>Icons</&> enum.
+            All icons are available from the <&| repo; url="base/Icons.java" &>Icons</&> enum.
             <table class="table table-bordered table-striped">
                 <tbody>
                     <tr>
@@ -410,12 +410,3 @@ org.jamon.alias.b=bs//base/buttons;
     </&>
   </body>
 </html>
-        
-        <section id="scaffolding">
-            <div class="page-header"><h1>Scaffolding</h1></div>
-                <&| s//row &>
-                    <&| s//span &>
-                            
-                    </&>
-                </&>
-        </section>
