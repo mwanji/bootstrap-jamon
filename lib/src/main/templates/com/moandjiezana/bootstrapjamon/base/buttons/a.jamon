@@ -3,7 +3,7 @@
 <%frag content />
 <%args>
 String href;
-ButtonStyle style = ButtonStyle.none;
+ButtonStyles style = ButtonStyles.none;
 ButtonSizes size = ButtonSizes.none;
 boolean disabled = false;
 String extraClasses = "";
