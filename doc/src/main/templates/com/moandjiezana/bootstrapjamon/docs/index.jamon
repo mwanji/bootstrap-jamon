@@ -55,6 +55,8 @@ String url;
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <script src="js/jquery-1.7.1.js"></script>
     <& s//include; responsive=true &>
     <style>
@@ -64,6 +66,9 @@ String url;
         @media (max-width: 980px) {
             #overview {
                 padding-top: 0;
+            }
+            #allTemplates {
+                display: none;
             }
         }
     </style>
@@ -82,6 +87,17 @@ String url;
 	            </&>
 	        </ul>
         </div>
+        <ul id="allTemplates" class="nav pull-right">
+            <&| n//dropdown; label="All Templates" &>
+                <&| n//navLink; href="#append" &>append</&>
+                <&| n//navLink; href="#dropdown" &>dropdown</&>
+                <&| n//navLink; href="#include" &>include</&>
+                <&| n//navLink; href="#navbar" &>navbar</&>
+                <&| n//navLink; href="#navbarToggle" &>navbarToggle</&>
+                <&| n//navLink; href="#navLink" &>navLink</&>
+                <&| n//navLink; href="#prepend" &>prepend</&>
+            </&>
+        </ul>
     </&>
     <&| s//container &>
         
@@ -90,8 +106,9 @@ String url;
                 <&| s//row &>
                     <&| s//span7 &>
                         <p>Bootstrap-Jamon is a set of <a href="http://twitter.github.com/bootstrap">Bootstrap</a>-aware helpers for the <a href="http://www.jamon.org">Jamon</a> templating engine.</p>
-                        <p>It is not a general purpose HTML library. It only eliminates the most boilerplate-heavy parts of Bootstrap.
-                        In fact, it does not cover every single possibility, but only those where it can significantly reduce the amount of code.</p>
+                        <p>This is not a general purpose HTML library. It only eliminates the most boilerplate-heavy parts of Bootstrap.
+                        In fact, it does not cover every single possibility, but only those where it can significantly reduce the amount of code.
+                        If there&apos;s something the library doesn't cater for, don&apos;t hesitate to drop down to raw HTML.</p>
                         <p>Bootstrap-Jamon is currently based on Bootstrap 2.0.1</p>
                     </&>
                     <&| s//span4; offset=1 &>
@@ -121,6 +138,7 @@ bs=/com/moandjiezana/bootstrapjamon;
 base=bs//base;
 s=bs//scaffolding;
 n=bs//components/navigation;
+f=base//forms;
 b=bs//base/buttons;
 &lt;/%alias&gt;
 </pre>
@@ -132,6 +150,7 @@ org.jamon.alias.bs=/com/moandjiezana/bootstrapjamon;
 org.jamon.alias.base=bs//base;
 org.jamon.alias.s=bs//scaffolding;
 org.jamon.alias.n=bs//components/navigation;
+org.jamon.alias.f=base//forms;
 org.jamon.alias.b=bs//base/buttons;
 </pre>
                     </&>
@@ -144,6 +163,20 @@ org.jamon.alias.b=bs//base/buttons;
                 <p>
                     For use in the <code><% lt %>head<% gt %></code>, includes Bootstrap's CSS and JS.
                 </p>
+                <&| s//row &>
+                    <&| s//span6 &>
+                    Input:
+<&| preFrag &>s//include; responsive=true</&>
+                    </&>
+                    <&| s//span6 &>
+                    Output:
+<pre>
+&lt;script type="text/javascript" src="js/bootstrap.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="css/bootstrap.css"&gt;
+&lt;link rel="stylesheet" href="css/bootstrap-responsive.css"&gt;
+</pre>
+                    </&>
+                </&>
                 <&| docTable &>
                     <tr>
                         <td>bootstrapPath</td>
@@ -320,14 +353,32 @@ org.jamon.alias.b=bs//base/buttons;
                             <&| b//a; href="#" &><& base//icon; icon=Icons.edit &> button</&>
                         </td>
                         <td class="span9">
-<&| preFrag &>b//a; href="#" &>&lt;&amp; base//icon; icon=Icons.edit <% ampGt %> button</&>                     
+<&| preFrag &>b//a; href="#" &>&lt;&amp; base//icon; icon=Icons.edit <% "&>" %> button</&>                     
                         </td>
                     </tr>
                 </tbody>
             </table>
             <h1>Forms</h1>
-            <h2>prepend</h2>
-            <&| f//prepend; text="eg" &><input /></&>
+            <&| s//row &>
+                <&| s//span1 &>
+		            <h2>prepend</h2>
+                </&>
+                <&| s//span11 &>
+		            <&| f//prepend; text="eg" &><input /></&>
+                </&>
+            </&>
+            <&| s//row &>
+                <&| s//span6 &>
+<&| preFrag &>f//prepend; text="eg" <% "&><" %>input /&gt;</&>
+                </&>
+                <&| s//span6 &>
+<pre>
+&lt;div class="input-prepend"&gt;
+    &lt;span class="add-on"&gt;eg&lt;/span&gt;&lt;input/&gt;
+&lt;/div&gt;
+</pre>
+                </&>
+            </&>
             <&| docTable &>
                 <tr>
                     <td>text</td>
@@ -335,8 +386,26 @@ org.jamon.alias.b=bs//base/buttons;
                     <td>The appended text</td>
                 </tr>
             </&>
-            <h2>append</h2>
-            <&| f//append; text="eg" &><input /></&>
+            <&| s//row &>
+                <&| s//span1 &>
+		            <h2>append</h2>
+                </&>
+                <&| s//span11 &>
+		            <&| f//append; text="eg" &><input /></&>
+                </&>
+            </&>
+            <&| s//row &>
+                <&| s//span6 &>
+<&|preFrag &>f//append; text="eg" <% "&><" %>input /></&>
+                </&>
+                <&| s//span6 &>
+<pre>
+&lt;div class="input-append"&gt;
+    &lt;input&gt;&lt;span class="add-on"&gt;eg&lt;/span&gt;
+&lt;/div&gt;
+</pre>
+                </&>
+            </&>
             <&| docTable &>
                 <tr>
                     <td>text</td>
