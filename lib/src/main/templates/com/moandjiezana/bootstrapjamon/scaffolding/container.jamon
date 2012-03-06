@@ -1,7 +1,8 @@
 <%frag content />
 <%args>
 boolean fluid = false;
+String extraClasses = "";
 </%args>
-<div class="container<%if fluid %>-fluid</%if>">
+<div class="container<%if fluid %>-fluid</%if><%if !extraClasses.isEmpty() %> <% extraClasses %></%if>">
 <& content &>
 </div>
