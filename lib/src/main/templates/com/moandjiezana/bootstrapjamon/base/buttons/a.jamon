@@ -1,14 +1,19 @@
 <%import>
+com.moandjiezana.bootstrapjamon.base.*;
 </%import>
 <%frag content />
 <%args>
 String href;
 ButtonStyles style = ButtonStyles.none;
 ButtonSizes size = ButtonSizes.none;
+Icons icon = null;
+IconColors iconColor = IconColors.AUTO;
 boolean disabled = false;
 String extraClasses = "";
 </%args> 
 <a href="<% href %>" class="btn<% style %><% size %>\
 <%if disabled %> disabled</%if>\
 <%if !extraClasses.isEmpty() %> <% extraClasses %></%if>"\
-><& content &></a>
+>\
+<%if icon != null %><& ../icon; icon=icon; white=style.usesWhiteIcon(iconColor) &> </%if>\
+<& content &></a>
