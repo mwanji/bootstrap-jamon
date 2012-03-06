@@ -3,8 +3,26 @@ String bootstrapPath = "";
 String cssFileName = "bootstrap";
 String jsFileName = "bootstrap";
 boolean responsive = false;
+int bodyPadding = 0;
+boolean ieShim = true;
+boolean meta = true;
 </%args>
 <%java String fullBootstrapPath = !bootstrapPath.isEmpty() ? bootstrapPath + "/" : ""; %>
 <script type="text/javascript" src="<% fullBootstrapPath %>js/<% jsFileName %>.js"></script>
 <link rel="stylesheet" href="<% fullBootstrapPath %>css/<% cssFileName %>.css"/>
+<%if bodyPadding > 0 %>
+<style>
+    body {
+        padding-top: <% bodyPadding %>px;
+    }
+</style>
+</%if>
 <%if responsive %><link rel="stylesheet" href="<% fullBootstrapPath %>css/<% cssFileName %>-responsive.css"/></%if>
+<%if meta %>
+<%if ieShim %>
+<!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode/svn/trunk/html5.js"></script>
+<![endif]-->
+</%if>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</%if>
