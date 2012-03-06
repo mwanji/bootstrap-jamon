@@ -1,0 +1,9 @@
+<%args>
+String action;
+String method = "get";
+String label = "Search";
+</%args>
+<form action="<% action %>" method="<% method %>" class="well form-search">
+  <input type="text" class="input-medium search-query">
+  <button type="submit" class="btn"><% label %></button>
+</form>

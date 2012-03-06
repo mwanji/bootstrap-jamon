@@ -360,43 +360,6 @@ org.jamon.alias.b=bs//base/buttons;
             <h1>Buttons</h1>
             <h2>a</h2>
             <p>Turns a link into a button.</p>
-            <&| docTable &>
-                <tr>
-                    <td>href</td>
-                    <td>&nbsp;</td>
-                    <td>The value of the href attribute</td>
-                </tr>
-                <tr>
-                    <td>style</td>
-                    <td><&|repo; url="base/buttons/ButtonStyles.java" &>ButtonStyles</&>.none</td>
-                    <td>The look to apply to the button. The enum names match Bootstrap's CSS classes.</td>
-                </tr>
-                <tr>
-                    <td>size</td>
-                    <td><&|repo; url="base/buttons/ButtonSizes.java" &>ButtonSizes</&>.none</td>
-                    <td>The size of the button. The enum names match Bootstrap's CSS classes.</td>
-                </tr>
-                <tr>
-                    <td>icon</td>
-                    <td>null</td>
-                    <td>If set to a value from the <&| repo; url="base/Icons.java" &>Icons</&> enum, will add the corresponding icon.</td>
-                </tr>
-                <tr>
-                    <td>iconColor</td>
-                    <td><&| repo; url="base/IconColors.java" &>IconColors</&>.AUTO</td>
-                    <td>Forces the icon to be black or white. AUTO uses black icons for light button styles and white icons for dark button styles.</td>
-                </tr>
-                <tr>
-                    <td>disabled</td>
-                    <td>false</td>
-                    <td>If true, adds the <code>.disabled</code> class.</td>
-                </tr>
-                <tr>
-                    <td>extraClasses</td>
-                    <td>""</td>
-                    <td>Arbitrary additional CSS classes to add</td>
-                </tr>
-            </&>
             <&|exampleTable &>
                     <tr valign="center">
                         <td class="span3">
@@ -438,19 +401,44 @@ org.jamon.alias.b=bs//base/buttons;
                        </td>
                     </tr>
             </&>
-            <h2>icon</h2>
-            <&|docTable &>
+            <&| docTable &>
+                <tr>
+                    <td>href</td>
+                    <td>&nbsp;</td>
+                    <td>The value of the href attribute</td>
+                </tr>
+                <tr>
+                    <td>style</td>
+                    <td><&|repo; url="base/buttons/ButtonStyles.java" &>ButtonStyles</&>.none</td>
+                    <td>The look to apply to the button. The enum names match Bootstrap's CSS classes.</td>
+                </tr>
+                <tr>
+                    <td>size</td>
+                    <td><&|repo; url="base/buttons/ButtonSizes.java" &>ButtonSizes</&>.none</td>
+                    <td>The size of the button. The enum names match Bootstrap's CSS classes.</td>
+                </tr>
                 <tr>
                     <td>icon</td>
-                    <td>&nbsp;</td>
-                    <td>All icons are available from the <&|repo; url="base/Icons.java" &>Icons</&> enum.</td>
+                    <td>null</td>
+                    <td>If set to a value from the <&| repo; url="base/Icons.java" &>Icons</&> enum, will add the corresponding icon.</td>
                 </tr>
                 <tr>
-                    <td>white</td>
+                    <td>iconColor</td>
+                    <td><&| repo; url="base/IconColors.java" &>IconColors</&>.AUTO</td>
+                    <td>Forces the icon to be black or white. AUTO uses black icons for light button styles and white icons for dark button styles.</td>
+                </tr>
+                <tr>
+                    <td>disabled</td>
                     <td>false</td>
-                    <td>If true, adds the icon-white class.</td>
+                    <td>If true, adds the <code>.disabled</code> class.</td>
+                </tr>
+                <tr>
+                    <td>extraClasses</td>
+                    <td>""</td>
+                    <td>Arbitrary additional CSS classes to add</td>
                 </tr>
             </&>
+            <h2>icon</h2>
             <&|exampleTable &>
                 <tr>
                     <td class="span3">
@@ -469,22 +457,26 @@ org.jamon.alias.b=bs//base/buttons;
                     </td>
                 </tr>
             </&>
-            <h1>Forms</h1>
-            <h2>prepend</h2>
-            <&| docTable &>
+            <&|docTable &>
                 <tr>
-                    <td>text</td>
+                    <td>icon</td>
                     <td>&nbsp;</td>
-                    <td>The appended text</td>
+                    <td>All icons are available from the <&|repo; url="base/Icons.java" &>Icons</&> enum.</td>
+                </tr>
+                <tr>
+                    <td>white</td>
+                    <td>false</td>
+                    <td>If true, adds the icon-white class.</td>
                 </tr>
             </&>
+            <h1>Forms</h1>
+            <h2>prepend</h2>
             <&|exampleTable &>
                 <tr>
                     <td><&| f//prepend; text="eg" &><input /></&></td>
                     <td><&| preFrag &>f//prepend; text="eg" <% "&><" %>input /&gt;</&></td>
                 </tr>
             </&>
-            <h2>append</h2>
             <&| docTable &>
                 <tr>
                     <td>text</td>
@@ -492,13 +484,27 @@ org.jamon.alias.b=bs//base/buttons;
                     <td>The appended text</td>
                 </tr>
             </&>
+            <h2>append</h2>
             <&|exampleTable &>
                 <tr>
                     <td><&|f//append; text="eg" &><input /></&></td>
                     <td><&| preFrag &>f//append; text="eg" <% "&><" %>input /&gt;</&></td>
                 </tr>
             </&>
+            <&| docTable &>
+                <tr>
+                    <td>text</td>
+                    <td>&nbsp;</td>
+                    <td>The appended text</td>
+                </tr>
+            </&>
             <h2>actions</h2>
+            <&|exampleTable &>
+                <tr>
+                    <td class="span6"><form class="form-horizontal"><& f//actions; &></form></td>
+                    <td><&| preSimple &>f//actions;</&></td>
+                </tr>
+            </&>
             <&| docTable &>
                 <tr>
                     <td>save</td>
@@ -516,13 +522,30 @@ org.jamon.alias.b=bs//base/buttons;
                     <td>The cancel link's href attribute.</td>
                 </tr>
             </&>
+            <h2>searchForm</h2>
             <&|exampleTable &>
                 <tr>
-                    <td class="span6"><form class="form-horizontal"><& f//actions; &></form></td>
-                    <td><&| preSimple &>f//actions;</&></td>
+                    <td class="span6"><& f//searchForm; action="#" &></td>
+                    <td><&|preFrag; &>searchForm; action="#"</&></td>
                 </tr>
             </&>
-            
+            <&|docTable &>
+                <tr>
+                    <td>action</td>
+                    <td>&nbsp;</td>
+                    <td>The form&apos;s action attribute.</td>
+                </tr>
+                <tr>
+                    <td>method</td>
+                    <td>"get"</td>
+                    <td>The form&apos;s method attribute.</td>
+                </tr>
+                <tr>
+                    <td>label</td>
+                    <td>"Search"</td>
+                    <td>The submit button&apos;s label.</td>
+                </tr>
+            </&>
         </section>
         
         <section id="components">
