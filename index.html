@@ -680,43 +680,7 @@ org.jamon.alias.b=bs//base/buttons;
     </tbody>
 </table>
 
-            <div class="row">
-
-                <div class="span2">
-
-		            <h2>append</h2>
-                 
-</div>
-                <div class="span10">
-
-		            <div class="input-append">
-    <input /><span class="add-on">eg</span>
-</div>
-                 
-</div>
-            
-</div>
-            <div class="row">
-
-                <div class="span6">
-
-<pre>
-&lt;&amp;|f//append; text="eg" &amp;&gt;&lt;input />&lt;/&amp;&gt;
-</pre>
-
-                 
-</div>
-                <div class="span6">
-
-<pre>
-&lt;div class="input-append"&gt;
-    &lt;input&gt;&lt;span class="add-on"&gt;eg&lt;/span&gt;
-&lt;/div&gt;
-</pre>
-                 
-</div>
-            
-</div>
+            <h2>append</h2>
             <table class="table table-striped table-bordered">
     <thead>
         <tr>
@@ -736,6 +700,80 @@ org.jamon.alias.b=bs//base/buttons;
     </tbody>
 </table>
 
+            <table class="table">
+    <thead>
+        <tr>
+            <th colspan="2">Examples</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+                <tr>
+                    <td><div class="input-append">
+    <input /><span class="add-on">eg</span>
+</div></td>
+                    <td><pre>
+&lt;&amp;|f//append; text="eg" &amp;&gt;&lt;input /&gt;&lt;/&amp;&gt;
+</pre>
+</td>
+                </tr>
+            
+    </tbody>
+</table>
+
+            <h2>actions</h2>
+            <table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Attribute</th>
+            <th>Default</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+                <tr>
+                    <td>save</td>
+                    <td>null</td>
+                    <td>The submit input's label. If null, the browser default is used.</td>
+                </tr>
+                <tr>
+                    <td>cancel</td>
+                    <td>"Cancel"</td>
+                    <td>The cancel link's label.</td>
+                </tr>
+                <tr>
+                    <td>cancelHref</td>
+                    <td>"#"</td>
+                    <td>The cancel link's href attribute.</td>
+                </tr>
+            
+    </tbody>
+</table>
+
+            <table class="table">
+    <thead>
+        <tr>
+            <th colspan="2">Examples</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+                <tr>
+                    <td class="span6"><form class="form-horizontal"><div class="form-actions">
+    <input type="submit" class="btn btn-primary" />
+    <a href="#" class="btn">Cancel</a>
+</div></form></td>
+                    <td><pre>
+&lt;&amp; f//actions; &amp;&gt;
+</pre>
+</td>
+                </tr>
+            
+    </tbody>
+</table>
+
+            
         </section>
         
         <section id="components">
