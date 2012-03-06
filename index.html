@@ -464,55 +464,6 @@ org.jamon.alias.b=bs//base/buttons;
             <h1>Buttons</h1>
             <h2>a</h2>
             <p>Turns a link into a button.</p>
-            <table class="table table-striped table-bordered">
-    <thead>
-        <tr>
-            <th>Attribute</th>
-            <th>Default</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-    
-                <tr>
-                    <td>href</td>
-                    <td>&nbsp;</td>
-                    <td>The value of the href attribute</td>
-                </tr>
-                <tr>
-                    <td>style</td>
-                    <td><a href="https://github.com/mwanji/bootstrap-jamon/blob/master/lib/src/main/java/com/moandjiezana/bootstrapjamon/base/buttons/ButtonStyles.java">ButtonStyles</a>.none</td>
-                    <td>The look to apply to the button. The enum names match Bootstrap's CSS classes.</td>
-                </tr>
-                <tr>
-                    <td>size</td>
-                    <td><a href="https://github.com/mwanji/bootstrap-jamon/blob/master/lib/src/main/java/com/moandjiezana/bootstrapjamon/base/buttons/ButtonSizes.java">ButtonSizes</a>.none</td>
-                    <td>The size of the button. The enum names match Bootstrap's CSS classes.</td>
-                </tr>
-                <tr>
-                    <td>icon</td>
-                    <td>null</td>
-                    <td>If set to a value from the <a href="https://github.com/mwanji/bootstrap-jamon/blob/master/lib/src/main/java/com/moandjiezana/bootstrapjamon/base/Icons.java">Icons</a> enum, will add the corresponding icon.</td>
-                </tr>
-                <tr>
-                    <td>iconColor</td>
-                    <td><a href="https://github.com/mwanji/bootstrap-jamon/blob/master/lib/src/main/java/com/moandjiezana/bootstrapjamon/base/IconColors.java">IconColors</a>.AUTO</td>
-                    <td>Forces the icon to be black or white. AUTO uses black icons for light button styles and white icons for dark button styles.</td>
-                </tr>
-                <tr>
-                    <td>disabled</td>
-                    <td>false</td>
-                    <td>If true, adds the <code>.disabled</code> class.</td>
-                </tr>
-                <tr>
-                    <td>extraClasses</td>
-                    <td>""</td>
-                    <td>Arbitrary additional CSS classes to add</td>
-                </tr>
-            
-    </tbody>
-</table>
-
             <table class="table">
     <thead>
         <tr>
@@ -579,7 +530,6 @@ org.jamon.alias.b=bs//base/buttons;
     </tbody>
 </table>
 
-            <h2>icon</h2>
             <table class="table table-striped table-bordered">
     <thead>
         <tr>
@@ -591,19 +541,45 @@ org.jamon.alias.b=bs//base/buttons;
     <tbody>
     
                 <tr>
-                    <td>icon</td>
+                    <td>href</td>
                     <td>&nbsp;</td>
-                    <td>All icons are available from the <a href="https://github.com/mwanji/bootstrap-jamon/blob/master/lib/src/main/java/com/moandjiezana/bootstrapjamon/base/Icons.java">Icons</a> enum.</td>
+                    <td>The value of the href attribute</td>
                 </tr>
                 <tr>
-                    <td>white</td>
+                    <td>style</td>
+                    <td><a href="https://github.com/mwanji/bootstrap-jamon/blob/master/lib/src/main/java/com/moandjiezana/bootstrapjamon/base/buttons/ButtonStyles.java">ButtonStyles</a>.none</td>
+                    <td>The look to apply to the button. The enum names match Bootstrap's CSS classes.</td>
+                </tr>
+                <tr>
+                    <td>size</td>
+                    <td><a href="https://github.com/mwanji/bootstrap-jamon/blob/master/lib/src/main/java/com/moandjiezana/bootstrapjamon/base/buttons/ButtonSizes.java">ButtonSizes</a>.none</td>
+                    <td>The size of the button. The enum names match Bootstrap's CSS classes.</td>
+                </tr>
+                <tr>
+                    <td>icon</td>
+                    <td>null</td>
+                    <td>If set to a value from the <a href="https://github.com/mwanji/bootstrap-jamon/blob/master/lib/src/main/java/com/moandjiezana/bootstrapjamon/base/Icons.java">Icons</a> enum, will add the corresponding icon.</td>
+                </tr>
+                <tr>
+                    <td>iconColor</td>
+                    <td><a href="https://github.com/mwanji/bootstrap-jamon/blob/master/lib/src/main/java/com/moandjiezana/bootstrapjamon/base/IconColors.java">IconColors</a>.AUTO</td>
+                    <td>Forces the icon to be black or white. AUTO uses black icons for light button styles and white icons for dark button styles.</td>
+                </tr>
+                <tr>
+                    <td>disabled</td>
                     <td>false</td>
-                    <td>If true, adds the icon-white class.</td>
+                    <td>If true, adds the <code>.disabled</code> class.</td>
+                </tr>
+                <tr>
+                    <td>extraClasses</td>
+                    <td>""</td>
+                    <td>Arbitrary additional CSS classes to add</td>
                 </tr>
             
     </tbody>
 </table>
 
+            <h2>icon</h2>
             <table class="table">
     <thead>
         <tr>
@@ -638,8 +614,6 @@ org.jamon.alias.b=bs//base/buttons;
     </tbody>
 </table>
 
-            <h1>Forms</h1>
-            <h2>prepend</h2>
             <table class="table table-striped table-bordered">
     <thead>
         <tr>
@@ -651,14 +625,21 @@ org.jamon.alias.b=bs//base/buttons;
     <tbody>
     
                 <tr>
-                    <td>text</td>
+                    <td>icon</td>
                     <td>&nbsp;</td>
-                    <td>The appended text</td>
+                    <td>All icons are available from the <a href="https://github.com/mwanji/bootstrap-jamon/blob/master/lib/src/main/java/com/moandjiezana/bootstrapjamon/base/Icons.java">Icons</a> enum.</td>
+                </tr>
+                <tr>
+                    <td>white</td>
+                    <td>false</td>
+                    <td>If true, adds the icon-white class.</td>
                 </tr>
             
     </tbody>
 </table>
 
+            <h1>Forms</h1>
+            <h2>prepend</h2>
             <table class="table">
     <thead>
         <tr>
@@ -680,7 +661,6 @@ org.jamon.alias.b=bs//base/buttons;
     </tbody>
 </table>
 
-            <h2>append</h2>
             <table class="table table-striped table-bordered">
     <thead>
         <tr>
@@ -700,6 +680,7 @@ org.jamon.alias.b=bs//base/buttons;
     </tbody>
 </table>
 
+            <h2>append</h2>
             <table class="table">
     <thead>
         <tr>
@@ -721,7 +702,48 @@ org.jamon.alias.b=bs//base/buttons;
     </tbody>
 </table>
 
+            <table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Attribute</th>
+            <th>Default</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+                <tr>
+                    <td>text</td>
+                    <td>&nbsp;</td>
+                    <td>The appended text</td>
+                </tr>
+            
+    </tbody>
+</table>
+
             <h2>actions</h2>
+            <table class="table">
+    <thead>
+        <tr>
+            <th colspan="2">Examples</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+                <tr>
+                    <td class="span6"><form class="form-horizontal"><div class="form-actions">
+    <input type="submit" class="btn btn-primary" />
+    <a href="#" class="btn">Cancel</a>
+</div></form></td>
+                    <td><pre>
+&lt;&amp; f//actions; &amp;&gt;
+</pre>
+</td>
+                </tr>
+            
+    </tbody>
+</table>
+
             <table class="table table-striped table-bordered">
     <thead>
         <tr>
@@ -751,6 +773,7 @@ org.jamon.alias.b=bs//base/buttons;
     </tbody>
 </table>
 
+            <h2>searchForm</h2>
             <table class="table">
     <thead>
         <tr>
@@ -760,12 +783,12 @@ org.jamon.alias.b=bs//base/buttons;
     <tbody>
         
                 <tr>
-                    <td class="span6"><form class="form-horizontal"><div class="form-actions">
-    <input type="submit" class="btn btn-primary" />
-    <a href="#" class="btn">Cancel</a>
-</div></form></td>
+                    <td class="span6"><form action="#" method="get" class="well form-search">
+  <input type="text" class="input-medium search-query">
+  <button type="submit" class="btn">Search</button>
+</form></td>
                     <td><pre>
-&lt;&amp; f//actions; &amp;&gt;
+&lt;&amp;|searchForm; action="#"&lt;/&amp;&gt;
 </pre>
 </td>
                 </tr>
@@ -773,7 +796,35 @@ org.jamon.alias.b=bs//base/buttons;
     </tbody>
 </table>
 
+            <table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Attribute</th>
+            <th>Default</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+                <tr>
+                    <td>action</td>
+                    <td>&nbsp;</td>
+                    <td>The form&apos;s action attribute.</td>
+                </tr>
+                <tr>
+                    <td>method</td>
+                    <td>"get"</td>
+                    <td>The form&apos;s method attribute.</td>
+                </tr>
+                <tr>
+                    <td>label</td>
+                    <td>"Search"</td>
+                    <td>The submit button&apos;s label.</td>
+                </tr>
             
+    </tbody>
+</table>
+
         </section>
         
         <section id="components">
