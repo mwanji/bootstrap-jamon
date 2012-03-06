@@ -1,0 +1,7 @@
+<%frag content />
+<%args>
+String extraClasses = "";
+</%args>
+<&|row; fluid=true; extraClasses=extraClasses &>
+<& content &>
+</&>
