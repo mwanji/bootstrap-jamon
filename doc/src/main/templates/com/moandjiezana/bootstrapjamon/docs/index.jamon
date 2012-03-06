@@ -484,26 +484,7 @@ org.jamon.alias.b=bs//base/buttons;
                     <td><&| preFrag &>f//prepend; text="eg" <% "&><" %>input /&gt;</&></td>
                 </tr>
             </&>
-            <&| s//row &>
-                <&| s//span2 &>
-		            <h2>append</h2>
-                </&>
-                <&| s//span10 &>
-		            <&| f//append; text="eg" &><input /></&>
-                </&>
-            </&>
-            <&| s//row &>
-                <&| s//span6 &>
-<&|preFrag &>f//append; text="eg" <% "&><" %>input /></&>
-                </&>
-                <&| s//span6 &>
-<pre>
-&lt;div class="input-append"&gt;
-    &lt;input&gt;&lt;span class="add-on"&gt;eg&lt;/span&gt;
-&lt;/div&gt;
-</pre>
-                </&>
-            </&>
+            <h2>append</h2>
             <&| docTable &>
                 <tr>
                     <td>text</td>
@@ -511,6 +492,37 @@ org.jamon.alias.b=bs//base/buttons;
                     <td>The appended text</td>
                 </tr>
             </&>
+            <&|exampleTable &>
+                <tr>
+                    <td><&|f//append; text="eg" &><input /></&></td>
+                    <td><&| preFrag &>f//append; text="eg" <% "&><" %>input /&gt;</&></td>
+                </tr>
+            </&>
+            <h2>actions</h2>
+            <&| docTable &>
+                <tr>
+                    <td>save</td>
+                    <td>null</td>
+                    <td>The submit input's label. If null, the browser default is used.</td>
+                </tr>
+                <tr>
+                    <td>cancel</td>
+                    <td>"Cancel"</td>
+                    <td>The cancel link's label.</td>
+                </tr>
+                <tr>
+                    <td>cancelHref</td>
+                    <td>"#"</td>
+                    <td>The cancel link's href attribute.</td>
+                </tr>
+            </&>
+            <&|exampleTable &>
+                <tr>
+                    <td class="span6"><form class="form-horizontal"><& f//actions; &></form></td>
+                    <td><&| preSimple &>f//actions;</&></td>
+                </tr>
+            </&>
+            
         </section>
         
         <section id="components">

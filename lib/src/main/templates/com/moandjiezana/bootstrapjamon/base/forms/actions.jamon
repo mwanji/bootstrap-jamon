@@ -1,0 +1,9 @@
+<%args>
+String save = null;
+String cancel = "Cancel";
+String cancelHref = "#";
+</%args>
+<div class="form-actions">
+    <input type="submit" class="btn btn-primary"<%if save != null %> value="<% save %>"</%if> />
+    <&|../buttons/a; href=cancelHref &><% cancel %></&>
+</div>
