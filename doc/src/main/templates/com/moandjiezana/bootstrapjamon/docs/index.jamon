@@ -22,7 +22,7 @@ final String close = "</&>";
 <%args>
 String url;
 </%args>
-<a href="http://github.com/mwanji/bootstrap-jamon/blob/master/lib/src/main/java/com/moandjiezana/bootstrapjamon/<% url %>"><& content &></a>
+<a href="https://github.com/mwanji/bootstrap-jamon/blob/master/lib/src/main/java/com/moandjiezana/bootstrapjamon/<% url %>"><& content &></a>\
 </%def>
 <%def preSimple>
     <%frag content />
@@ -33,7 +33,7 @@ String url;
 <%def preFrag>
     <%frag content />
 <pre>
-&lt;&amp;| <& content &>&lt;/&amp;&gt;
+&lt;&amp;|<& content &>&lt;/&amp;&gt;
 </pre>
 </%def>
 <%def docTable>
@@ -51,12 +51,23 @@ String url;
     </tbody>
 </table>
 </%def>
+<%def exampleTable>
+    <%frag content />
+<table class="table">
+    <thead>
+        <tr>
+            <th colspan="2">Examples</th>
+        </tr>
+    </thead>
+    <tbody>
+        <& content &>
+    </tbody>
+</table>
+</%def>
 
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <script src="js/jquery-1.7.1.js"></script>
     <& s//include; responsive=true &>
     <style>
@@ -163,17 +174,26 @@ org.jamon.alias.b=bs//base/buttons;
                 <p>
                     For use in the <code><% lt %>head<% gt %></code>, includes Bootstrap's CSS and JS.
                 </p>
-                <&| s//row &>
-                    <&| s//span6 &>
+                <&|s//row &>
+                    <&|s//span6 &>
                     Input:
-<&| preFrag &>s//include; responsive=true</&>
+<&|preSimple &>s//include; responsive=true; bodyPadding=60</&>
                     </&>
-                    <&| s//span6 &>
-                    Output:
+                    <&|s//span6 &>
+                    Output: 
 <pre>
 &lt;script type="text/javascript" src="js/bootstrap.js"&gt;&lt;/script&gt;
 &lt;link rel="stylesheet" href="css/bootstrap.css"&gt;
+&lt;style&gt;
+    body {
+        padding-top: 60px;
+    }
+&lt;/style&gt;
 &lt;link rel="stylesheet" href="css/bootstrap-responsive.css"&gt;
+&lt;!--[if lt IE 9]&gt;
+    &lt;script src="//html5shiv.googlecode/svn/trunk/html5.js"&gt;&lt;/script&gt;
+&lt;![endif]--&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
 </pre>
                     </&>
                 </&>
@@ -201,14 +221,60 @@ org.jamon.alias.b=bs//base/buttons;
                         <td>false</td>
                         <td>If true, bootstrap-responsive.css will be included.</td>
                     </tr>
+                    <tr>
+                        <td>bodyPadding</td>
+                        <td>0</td>
+                        <td>If greater than 0, adds padding-top to the body. Set this value if you are using a fixed navbar.</td>
+                    </tr>
+                    <tr>
+                        <td>ieShim</td>
+                        <td>true</td>
+                        <td>If true, includes <a href="http://code.google.com/p/html5shim/">HTML5 shim</a>, which enables HTML5 elements in IE older than IE 9.</td>
+                    </tr>
+                    <tr>
+                        <td>meta</td>
+                        <td>true</td>
+                        <td>If true, adds the recommended viewport meta tag.</td>
+                    </tr>
                 </&>
-                <h2>row</h2>
-                <&| docTable &>
+                <h2>container</h2>
+                <&|docTable &>
                     <tr>
                         <td>fluid</td>
                         <td>false</td>
-                        <td>Uses row class when false, row-fluid when true.</td>
+                        <td>Uses container class when false, container-fluid when true.</td>
                     </tr>
+                    <tr>
+                        <td>extraClasses</td>
+                        <td>""</td>
+                        <td>Arbitrary CSS classes.</td>
+                    </tr>
+                </&>
+                <h2>containerFluid</h2>
+                The equivalent of calling <code>container</code> with <code>fluid=true</code>.
+                <&|docTable &>
+                    <tr>
+                        <td>extraClasses</td>
+                        <td>""</td>
+                        <td>Arbitrary CSS classes.</td>
+                    </tr>
+                </&>
+                <h2>row</h2>
+                <&|docTable &>
+                    <tr>
+                        <td>fluid</td>
+                        <td>false</td>
+                        <td>Uses <code>.row</code> when false, row-fluid when true.</td>
+                    </tr>
+                    <tr>
+                        <td>extraClasses</td>
+                        <td>""</td>
+                        <td>Arbitrary CSS classes.</td>
+                    </tr>
+                </&>
+                <h2>rowFluid</h2>
+                The equivalent of calling <code>row</code> with <code>fluid=true</code>.
+                <&|docTable &>
                     <tr>
                         <td>extraClasses</td>
                         <td>""</td>
@@ -230,7 +296,7 @@ org.jamon.alias.b=bs//base/buttons;
                     </tr>
                 </&>
                 <h2>span</h2>
-                Template for use only on grids with more than 12 columns.
+                Necessary only in grids with more than 12 columns.
                 <&| docTable &>
                     <tr>
                         <td>size</td>
@@ -248,13 +314,13 @@ org.jamon.alias.b=bs//base/buttons;
                         <td>Arbitrary CSS classes.</td>
                     </tr>
                 </&>
-                <h2>Examples</h2>
+                <strong>Examples</strong>
                 <&| s//row &>
                     <&| s//span6 &>
                         Input:
 <pre>
 <% ltAmp %>| s//row <% ampGt %>
-    <% ltAmp %>| s//span <% ampGt %>
+    <% ltAmp %>| s//span12 <% ampGt %>
         // content...
     <% close %>
 <% close %>
@@ -293,10 +359,45 @@ org.jamon.alias.b=bs//base/buttons;
             <div class="page-header"><h1>Base</h1></div>
             <h1>Buttons</h1>
             <h2>a</h2>
-            <p>The a template turns a link into a button.</p>
-            <h3>Examples</h3>
-            <table class="table table-bordered table-striped">
-                <tbody>
+            <p>Turns a link into a button.</p>
+            <&| docTable &>
+                <tr>
+                    <td>href</td>
+                    <td>&nbsp;</td>
+                    <td>The value of the href attribute</td>
+                </tr>
+                <tr>
+                    <td>style</td>
+                    <td><&|repo; url="base/buttons/ButtonStyles.java" &>ButtonStyles</&>.none</td>
+                    <td>The look to apply to the button. The enum names match Bootstrap's CSS classes.</td>
+                </tr>
+                <tr>
+                    <td>size</td>
+                    <td><&|repo; url="base/buttons/ButtonSizes.java" &>ButtonSizes</&>.none</td>
+                    <td>The size of the button. The enum names match Bootstrap's CSS classes.</td>
+                </tr>
+                <tr>
+                    <td>icon</td>
+                    <td>null</td>
+                    <td>If set to a value from the <&| repo; url="base/Icons.java" &>Icons</&> enum, will add the corresponding icon.</td>
+                </tr>
+                <tr>
+                    <td>iconColor</td>
+                    <td><&| repo; url="base/IconColors.java" &>IconColors</&>.AUTO</td>
+                    <td>Forces the icon to be black or white. AUTO uses black icons for light button styles and white icons for dark button styles.</td>
+                </tr>
+                <tr>
+                    <td>disabled</td>
+                    <td>false</td>
+                    <td>If true, adds the <code>.disabled</code> class.</td>
+                </tr>
+                <tr>
+                    <td>extraClasses</td>
+                    <td>""</td>
+                    <td>Arbitrary additional CSS classes to add</td>
+                </tr>
+            </&>
+            <&|exampleTable &>
                     <tr valign="center">
                         <td class="span3">
                            <&| b//a; href="#"; &>Default</&>
@@ -310,75 +411,66 @@ org.jamon.alias.b=bs//base/buttons;
                            <&| b//a; href="#"; style=ButtonStyles.primary &>Primary</&>
                        </td>
                        <td>
-                           Use the <&| repo; url="base/buttons/ButtonStyles.java" &>ButtonStyles</&> enum to apply a look to your button. The enum names match
-                           Bootstrap&apos;s CSS classes. 
-<&| preFrag; &>b//a; href="#"; style=ButtonStyle.primary <% ampGt %>Primary</&>
+<&| preFrag; &>b//a; href="#"; style=ButtonStyles.primary <% ampGt %>Primary</&>
                        </td>
+                    </tr>
+                    <tr>
+                        <td><&|b//a; href="#"; icon=Icons.edit; &>test</&></td>
+                        <td>
+<&|preFrag; &>b//a; href="#"; icon=Icons.edit; <% "&>" %>edit</&>
+                        </td>
                     </tr>
                     <tr>
                        <td>
                            <&| b//a; href="#"; size=ButtonSizes.mini &>mini</&>
                        </td>
                        <td>
-                           Use the <&| repo; url="base/buttons/ButtonSizes.java" &>ButtonSizes</&> enum to change the size. The enum names match
-                           Bootstrap&apos;s CSS classes. 
 <&| preFrag; &>b//a; href="#"; size=ButtonSizes.mini <% ampGt %>mini</&>
                        </td>
                     </tr>
                     <tr>
                        <td>
-                        <&| b//a; href="#"; extraClasses="span3" &>span3</&>
+                        <&|b//a; href="#"; extraClasses="span3" &>span3</&>
                        </td>
                        <td>
                             Arbitrary sizes can be used via the extraClasses attribute.
-<&| preFrag; &>b//a; href="#"; label="Primary"; extraClasses="span3" <% ampGt %>span3</&>
+<&|preFrag; &>b//a; href="#"; label="Primary"; extraClasses="span3" <% ampGt %>span3</&>
                        </td>
                     </tr>
-                </tbody>
-            </table>
+            </&>
             <h2>icon</h2>
-            All icons are available from the <&| repo; url="base/Icons.java" &>Icons</&> enum.
-            <table class="table table-bordered table-striped">
-                <tbody>
-                    <tr>
-                        <td class="span3">
-                            <& base//icon; icon=Icons.map_marker &>
-                        </td>
-                        <td class="span9">
+            <&|docTable &>
+                <tr>
+                    <td>icon</td>
+                    <td>&nbsp;</td>
+                    <td>All icons are available from the <&|repo; url="base/Icons.java" &>Icons</&> enum.</td>
+                </tr>
+                <tr>
+                    <td>white</td>
+                    <td>false</td>
+                    <td>If true, adds the icon-white class.</td>
+                </tr>
+            </&>
+            <&|exampleTable &>
+                <tr>
+                    <td class="span3">
+                        <& base//icon; icon=Icons.map_marker &>
+                    </td>
+                    <td class="span9">
 <&| preSimple &>base//icon; icon=Icons.map_marker</&>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="span3">
-                            <&| b//a; href="#" &><& base//icon; icon=Icons.edit &> button</&>
-                        </td>
-                        <td class="span9">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="span3">
+                        <&| b//a; href="#" &><& base//icon; icon=Icons.edit &> button</&>
+                    </td>
+                    <td class="span9">
 <&| preFrag &>b//a; href="#" &>&lt;&amp; base//icon; icon=Icons.edit <% "&>" %> button</&>                     
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                    </td>
+                </tr>
+            </&>
             <h1>Forms</h1>
-            <&| s//row &>
-                <&| s//span1 &>
-		            <h2>prepend</h2>
-                </&>
-                <&| s//span11 &>
-		            <&| f//prepend; text="eg" &><input /></&>
-                </&>
-            </&>
-            <&| s//row &>
-                <&| s//span6 &>
-<&| preFrag &>f//prepend; text="eg" <% "&><" %>input /&gt;</&>
-                </&>
-                <&| s//span6 &>
-<pre>
-&lt;div class="input-prepend"&gt;
-    &lt;span class="add-on"&gt;eg&lt;/span&gt;&lt;input/&gt;
-&lt;/div&gt;
-</pre>
-                </&>
-            </&>
+            <h2>prepend</h2>
             <&| docTable &>
                 <tr>
                     <td>text</td>
@@ -386,11 +478,17 @@ org.jamon.alias.b=bs//base/buttons;
                     <td>The appended text</td>
                 </tr>
             </&>
+            <&|exampleTable &>
+                <tr>
+                    <td><&| f//prepend; text="eg" &><input /></&></td>
+                    <td><&| preFrag &>f//prepend; text="eg" <% "&><" %>input /&gt;</&></td>
+                </tr>
+            </&>
             <&| s//row &>
-                <&| s//span1 &>
+                <&| s//span2 &>
 		            <h2>append</h2>
                 </&>
-                <&| s//span11 &>
+                <&| s//span10 &>
 		            <&| f//append; text="eg" &><input /></&>
                 </&>
             </&>
