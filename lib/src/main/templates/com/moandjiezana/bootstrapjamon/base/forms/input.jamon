@@ -1,15 +1,14 @@
 <%args>
 String label;
-String inputName;
-String inputType = "text";
-String inputId = "";
-String inputValue = "";
-String extraClasses = "";
-String inputExtraClasses = "";
-States state = States.none;
+String name;
+String type = "text";
+String id = "";
+String value = "";
+String classes = "";
+States state = States.NONE;
 String helpInline = "";
 String helpBlock = "";
 </%args>
-<&| controlGroup; label=label; forId=inputId; state=state; extraClasses=extraClasses; helpInline=helpInline; helpBlock=helpBlock &>
-    <input type="<% inputType %>" id="<% inputId %>" class="<%if !inputExtraClasses.isEmpty() %><% inputExtraClasses %></%if>" name="<% inputName %>" value="<% inputValue %>"/>
+<&| controlGroup; label=label; forId=id; state=state; helpInline=helpInline; helpBlock=helpBlock &>
+    <input type="<% type %>" id="<% id %>" class="<%if !classes.isEmpty() %><% classes %></%if>" name="<% name %>" value="<% value %>"/>
 </&>
