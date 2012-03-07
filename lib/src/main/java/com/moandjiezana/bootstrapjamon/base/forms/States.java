@@ -1,7 +1,7 @@
 package com.moandjiezana.bootstrapjamon.base.forms;
 
 public enum States {
-  error, success, warning, none {
+  error, success, warning, NONE {
     @Override
     public String toString() {
       return "";
