@@ -1,5 +1,6 @@
 <%import>
 com.moandjiezana.bootstrapjamon.base.*;
+com.moandjiezana.bootstrapjamon.base.forms.*;
 com.moandjiezana.bootstrapjamon.base.buttons.*;
 </%import>
 <%alias>
@@ -18,7 +19,7 @@ final String ampGt = "&>";
 final String close = "</&>";
 </%java>
 <%def repo>
-<%frag content />
+    <%frag content />
 <%args>
 String url;
 </%args>
@@ -38,6 +39,9 @@ String url;
 </%def>
 <%def docTable>
     <%frag content />
+<%args>
+String source;
+</%args>
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
@@ -50,6 +54,7 @@ String url;
     <& content &>
     </tbody>
 </table>
+<p>(<a href="https://github.com/mwanji/bootstrap-jamon/blob/master/lib/src/main/templates/com/moandjiezana/bootstrapjamon/<% source %>">view source</a>)</p>
 </%def>
 <%def exampleTable>
     <%frag content />
@@ -197,7 +202,7 @@ org.jamon.alias.b=bs//base/buttons;
 </pre>
                     </&>
                 </&>
-                <&| docTable &>
+                <&|docTable; source="scaffolding/include.jamon" &>
                     <tr>
                         <td>bootstrapPath</td>
                         <td>""</td>
@@ -238,7 +243,7 @@ org.jamon.alias.b=bs//base/buttons;
                     </tr>
                 </&>
                 <h2>container</h2>
-                <&|docTable &>
+                <&|docTable; source="scaffolding/container.jamon" &>
                     <tr>
                         <td>fluid</td>
                         <td>false</td>
@@ -252,7 +257,7 @@ org.jamon.alias.b=bs//base/buttons;
                 </&>
                 <h2>containerFluid</h2>
                 The equivalent of calling <code>container</code> with <code>fluid=true</code>.
-                <&|docTable &>
+                <&|docTable; source="scaffolding/containerFluid.jamon" &>
                     <tr>
                         <td>extraClasses</td>
                         <td>""</td>
@@ -260,7 +265,7 @@ org.jamon.alias.b=bs//base/buttons;
                     </tr>
                 </&>
                 <h2>row</h2>
-                <&|docTable &>
+                <&|docTable; source="scaffolding/row.jamon" &>
                     <tr>
                         <td>fluid</td>
                         <td>false</td>
@@ -274,7 +279,7 @@ org.jamon.alias.b=bs//base/buttons;
                 </&>
                 <h2>rowFluid</h2>
                 The equivalent of calling <code>row</code> with <code>fluid=true</code>.
-                <&|docTable &>
+                <&|docTable; source="scaffolding/rowFluid.jamon" &>
                     <tr>
                         <td>extraClasses</td>
                         <td>""</td>
@@ -283,7 +288,7 @@ org.jamon.alias.b=bs//base/buttons;
                 </&>
                 <h2>span1 - span12</h2>
                 <p>Convenience templates with pre-defined sizes.</p>
-                <&| docTable &>
+                <&| docTable; source="scaffolding/span1.jamon" &>
                     <tr>
                         <td>offset</td>
                         <td>0</td>
@@ -297,7 +302,7 @@ org.jamon.alias.b=bs//base/buttons;
                 </&>
                 <h2>span</h2>
                 Necessary only in grids with more than 12 columns.
-                <&| docTable &>
+                <&| docTable; source="scaffolding/span.jamon" &>
                     <tr>
                         <td>size</td>
                         <td>12</td>
@@ -401,7 +406,7 @@ org.jamon.alias.b=bs//base/buttons;
                        </td>
                     </tr>
             </&>
-            <&| docTable &>
+            <&|docTable; source="base/buttons/a.jamon" &>
                 <tr>
                     <td>href</td>
                     <td>&nbsp;</td>
@@ -457,7 +462,7 @@ org.jamon.alias.b=bs//base/buttons;
                     </td>
                 </tr>
             </&>
-            <&|docTable &>
+            <&|docTable; source="base/icon.jamon" &>
                 <tr>
                     <td>icon</td>
                     <td>&nbsp;</td>
@@ -477,7 +482,7 @@ org.jamon.alias.b=bs//base/buttons;
                     <td><&| preFrag &>f//prepend; text="eg" <% "&><" %>input /&gt;</&></td>
                 </tr>
             </&>
-            <&| docTable &>
+            <&| docTable; source="base/forms/prepend.jamon" &>
                 <tr>
                     <td>text</td>
                     <td>&nbsp;</td>
@@ -491,7 +496,7 @@ org.jamon.alias.b=bs//base/buttons;
                     <td><&| preFrag &>f//append; text="eg" <% "&><" %>input /&gt;</&></td>
                 </tr>
             </&>
-            <&| docTable &>
+            <&|docTable; source="base/forms/apppend.jamon" &>
                 <tr>
                     <td>text</td>
                     <td>&nbsp;</td>
@@ -505,7 +510,7 @@ org.jamon.alias.b=bs//base/buttons;
                     <td><&| preSimple &>f//actions;</&></td>
                 </tr>
             </&>
-            <&| docTable &>
+            <&|docTable; source="base/forms/actions.jamon" &>
                 <tr>
                     <td>save</td>
                     <td>null</td>
@@ -529,7 +534,7 @@ org.jamon.alias.b=bs//base/buttons;
                     <td><&|preFrag; &>searchForm; action="#"</&></td>
                 </tr>
             </&>
-            <&|docTable &>
+            <&|docTable; source="base/forms/searchForm.jamon" &>
                 <tr>
                     <td>action</td>
                     <td>&nbsp;</td>
@@ -546,6 +551,60 @@ org.jamon.alias.b=bs//base/buttons;
                     <td>The submit button&apos;s label.</td>
                 </tr>
             </&>
+            <h2>input</h2>
+            <&|exampleTable &>
+                <tr> 
+                    <td><& f//input; label="A field"; name="name"; id="aField"; state=States.warning; helpBlock="Check warnings" &></td>
+                    <td><% "<& f//input; label=\"A field\"; name=\"name\"; id=\"aField\"; state=States.warning; helpBlock=\"Check warnings\" &>" #H %></td>
+                </tr>
+            </&>
+            <&|docTable; source="base/forms/input.jamon" &>
+                <tr>
+                    <td>label</td>
+                    <td>&nbsp;</td>
+                    <td>The input&apos;s label</td>
+                </tr>
+                <tr>
+                    <td>name</td>
+                    <td>&nbsp;</td>
+                    <td>The input&apos;s name attribute.</td>
+                </tr>
+                <tr>
+                    <td>type</td>
+                    <td>"text"</td>
+                    <td>The input&apos;s type attribute</td>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>""</td>
+                    <td>The input&apos;s id attribute</td>
+                </tr>
+                <tr>
+                    <td>value</td>
+                    <td>""</td>
+                    <td>The input&apos;s value attribute</td>
+                </tr>
+                <tr>
+                    <td>classes</td>
+                    <td>""</td>
+                    <td>The input&apos;s class attribute</td>
+                </tr>
+                <tr>
+                    <td>state</td>
+                    <td><&|repo; url="base/forms/States.java" &>States</&>.NONE</td>
+                    <td>Whether to display as an error, warning, etc. The enum&apos;s values match Bootstrap&apos;s class names.</td>
+                </tr>
+                <tr>
+                    <td>helpInline</td>
+                    <td>""</td>
+                    <td>Help text added next to the input</td>
+                </tr>
+                <tr>
+                    <td>helpBlock</td>
+                    <td>""</td>
+                    <td>Help text added below the input</td>
+                </tr>
+            </&>
         </section>
         
         <section id="components">
@@ -559,7 +618,7 @@ org.jamon.alias.b=bs//base/buttons;
         <section id="components-navigation">
             <h1>Navigation</h1>
             <h2>navbar</h2>
-            <&| docTable &>
+            <&|docTable; source="components/navigation/navbar.jamon" &>
                 <tr>
                     <td>fixedTop</td>
                     <td>false</td>
@@ -568,7 +627,7 @@ org.jamon.alias.b=bs//base/buttons;
             </&>
             <h2>dropdown</h2>
             The outer part of the dropdown menu. The body of the template becomes the body of the inner <code><% lt %>ul<% gt %></code>.
-            <&|docTable &>
+            <&|docTable; source="components/navigation/dropdown.jamon" &>
                 <tr>
                     <td>label</td>
                     <td>&nbsp;</td>
@@ -587,7 +646,7 @@ org.jamon.alias.b=bs//base/buttons;
             </&>
             <h2>navLink</h2>
             A list item that contains a link. 
-            <&|docTable &>
+            <&|docTable; source="components/navigation/navLink.jamon" &>
                 <tr>
                     <td>href</td>
                     <td>&nbsp;</td>
@@ -601,7 +660,7 @@ org.jamon.alias.b=bs//base/buttons;
             </&>
             <h2>navbarToggle</h2>
             The default menu toggle button for responsive nav bars.
-            <&|docTable &>
+            <&|docTable; source="components/navigation/navbarToggle.jamon" &>
                 <tr>
                     <td>target</td>
                     <td>".nav-collapse"</td>
