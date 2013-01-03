@@ -18,6 +18,9 @@ final String ltAmp = "<&";
 final String ampGt = "&>";
 final String close = "</&>";
 </%java>
+<%java>
+final String libSrc = "https://github.com/mwanji/bootstrap-jamon/blob/master/lib/src";
+</%java>
 <%def repo>
     <%frag content />
 <%args>
@@ -73,6 +76,7 @@ String source;
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Bootstrap-Jamon Documentation</title>
     <script src="js/jquery-1.7.1.js"></script>
     <& s//include; responsive=true &>
     <style>
@@ -90,47 +94,47 @@ String source;
     </style>
   </head>
   <body>
-    <&| n//navbar; fixedTop=true &>
+    <&|n//navbar; fixedTop=true &>
         <& n//navbarToggle &>
-        <&| n//brand; href="#overview"&>Bootstrap-Jamon</&>
+        <&|n//brand; href="#overview"&>Bootstrap-Jamon</&>
         <div class="nav-collapse">
 	        <ul class="nav">
-	            <&| n//navLink; href="#aliases" &>Aliases</&>
-	            <&| n//navLink; href="#scaffolding" &>Scaffolding</&>
-	            <&| n//navLink; href="#base" &>Base</&>
-	            <&| n//dropdown; label="Components" &>
-	                <&| n//navLink; href="#components-navigation" &>Navigation</&>
+	            <&|n//navLink; href="#aliases" &>Aliases</&>
+	            <&|n//navLink; href="#scaffolding" &>Scaffolding</&>
+	            <&|n//navLink; href="#base" &>Base</&>
+	            <&|n//dropdown; label="Components" &>
+	                <&|n//navLink; href="#components-navigation" &>Navigation</&>
 	            </&>
 	        </ul>
         </div>
         <ul id="allTemplates" class="nav pull-right">
-            <&| n//dropdown; label="All Templates" &>
-                <&| n//navLink; href="#append" &>append</&>
-                <&| n//navLink; href="#dropdown" &>dropdown</&>
-                <&| n//navLink; href="#include" &>include</&>
-                <&| n//navLink; href="#navbar" &>navbar</&>
-                <&| n//navLink; href="#navbarToggle" &>navbarToggle</&>
-                <&| n//navLink; href="#navLink" &>navLink</&>
-                <&| n//navLink; href="#prepend" &>prepend</&>
+            <&|n//dropdown; label="All Templates" &>
+                <&|n//navLink; href="#append" &>append</&>
+                <&|n//navLink; href="#dropdown" &>dropdown</&>
+                <&|n//navLink; href="#include" &>include</&>
+                <&|n//navLink; href="#navbar" &>navbar</&>
+                <&|n//navLink; href="#navbarToggle" &>navbarToggle</&>
+                <&|n//navLink; href="#navLink" &>navLink</&>
+                <&|n//navLink; href="#prepend" &>prepend</&>
             </&>
         </ul>
     </&>
-    <&| s//container &>
+    <&|s//container &>
         
         <section id="overview">
             <div class="page-header"><h1>Overview</h1></div>
-                <&| s//row &>
-                    <&| s//span7 &>
+                <&|s//row &>
+                    <&|s//span7 &>
                         <p>Bootstrap-Jamon is a set of <a href="http://twitter.github.com/bootstrap">Bootstrap</a>-aware helpers for the <a href="http://www.jamon.org">Jamon</a> templating engine.</p>
                         <p>This is not a general purpose HTML library. It only eliminates the most boilerplate-heavy parts of Bootstrap.
                         In fact, it does not cover every single possibility, but only those where it can significantly reduce the amount of code.
                         If there&apos;s something the library doesn't cater for, don&apos;t hesitate to drop down to raw HTML.</p>
                         <p>Bootstrap-Jamon is currently based on Bootstrap 2.0.1</p>
                     </&>
-                    <&| s//span4; offset=1 &>
-                        <&| b//a; href="http://github.com/mwanji/bootstrap-jamon"; style=ButtonStyles.primary; size=ButtonSizes.large &>View source on Github</&>
+                    <&|s//span4; offset=1 &>
+                        <&|b//a; href="http://github.com/mwanji/bootstrap-jamon"; style=ButtonStyles.primary; size=ButtonSizes.large &>View source on Github</&>
                         <p class="help-block">
-                            This documentation is itself written in Bootstrap-Jamon and is a good source of examples.
+                            This documentation is itself written in Bootstrap-Jamon and is a good <a href="https://github.com/mwanji/bootstrap-jamon/blob/master/doc/src/main/templates/com/moandjiezana/bootstrapjamon/docs/index.jamon">source</a> of examples.
                         </p>
                     </&>
                 </&>
@@ -138,15 +142,15 @@ String source;
         
         <section id="aliases">
             <div class="page-header"><h1>Aliases</h1></div>
-                <&| s//row &>
-                    <&| s//span; &>
+                <&|s//row &>
+                    <&|s//span; &>
                         <p>The raw template paths can get quite long. Here are some recommended aliases you can copy into
                         your template files or jamon.properties.</p>
                         <p>These aliases will be used throughout the documentation.</p>
                     </&>
                 </&>
-                <&| s//row &>
-                    <&| s//span6 &>
+                <&|s//row &>
+                    <&|s//span6 &>
                         For template files:
 <pre>
 &lt;%alias&gt;
@@ -159,15 +163,15 @@ b=bs//base/buttons;
 &lt;/%alias&gt;
 </pre>
                     </&>
-                    <&| s//span6 &>
+                    <&|s//span6 &>
                         For jamon.properties:
 <pre>
-org.jamon.alias.bs=/com/moandjiezana/bootstrapjamon;
-org.jamon.alias.base=bs//base;
-org.jamon.alias.s=bs//scaffolding;
-org.jamon.alias.n=bs//components/navigation;
-org.jamon.alias.f=base//forms;
-org.jamon.alias.b=bs//base/buttons;
+org.jamon.alias.bs=/com/moandjiezana/bootstrapjamon
+org.jamon.alias.base=/com/moandjiezana/bootstrapjamon/base
+org.jamon.alias.s=/com/moandjiezana/bootstrapjamon/scaffolding
+org.jamon.alias.n=/com/moandjiezana/bootstrapjamon/components/navigation
+org.jamon.alias.f=/com/moandjiezana/bootstrapjamon/base/forms
+org.jamon.alias.b=/com/moandjiezana/bootstrapjamon/base/buttons
 </pre>
                     </&>
                 </&>
@@ -209,16 +213,22 @@ org.jamon.alias.b=bs//base/buttons;
                         <td>
                             The root path to Bootstrap's assets. The css, js and img folders should be found here.
                             The default will point to the current folder.
+                            Should not end with a slash.
                         </td>
                     </tr>
                     <tr>
+                    	<td>fileName</td>
+                    	<td>"bootstrap"</td>
+                    	<td>The base file name used to construct the CSS, JS and responsive asset paths.</td>
+                    </tr>
+                    <tr>
                         <td>cssFileName</td>
-                        <td>"bootstrap"</td>
+                        <td>The value of <code>fileName</code></td>
                         <td>The file name to which .css will be appended.</td>
                     </tr>
                     <tr>
                         <td>jsFileName</td>
-                        <td>"bootstrap"</td>
+                        <td>The value of <code>fileName</code></td>
                         <td>The file name to which .js will be appended.</td>
                     </tr>
                     <tr>
@@ -288,7 +298,7 @@ org.jamon.alias.b=bs//base/buttons;
                 </&>
                 <h2>span1 - span12</h2>
                 <p>Convenience templates with pre-defined sizes.</p>
-                <&| docTable; source="scaffolding/span1.jamon" &>
+                <&|docTable; source="scaffolding/span1.jamon" &>
                     <tr>
                         <td>offset</td>
                         <td>0</td>
@@ -302,7 +312,7 @@ org.jamon.alias.b=bs//base/buttons;
                 </&>
                 <h2>span</h2>
                 Necessary only in grids with more than 12 columns.
-                <&| docTable; source="scaffolding/span.jamon" &>
+                <&|docTable; source="scaffolding/span.jamon" &>
                     <tr>
                         <td>size</td>
                         <td>12</td>
@@ -320,8 +330,8 @@ org.jamon.alias.b=bs//base/buttons;
                     </tr>
                 </&>
                 <strong>Examples</strong>
-                <&| s//row &>
-                    <&| s//span6 &>
+                <&|s//row &>
+                    <&|s//span6 &>
                         Input:
 <pre>
 <% ltAmp %>| s//row <% ampGt %>
@@ -339,7 +349,7 @@ org.jamon.alias.b=bs//base/buttons;
 <% close %>
 </pre>
                     </&>
-                    <&| s//span6 &>
+                    <&|s//span6 &>
                     Output:
 <pre>
 <% lt %>div class="row"<% gt %>
@@ -368,18 +378,18 @@ org.jamon.alias.b=bs//base/buttons;
             <&|exampleTable &>
                     <tr valign="center">
                         <td class="span3">
-                           <&| b//a; href="#"; &>Default</&>
+                           <&|b//a; href="#"; &>Default</&>
                         </td>
                         <td class="span9">
-<&| preFrag; &> b//a; href="#" <% ampGt %>Default</&>
+<&|preFrag; &> b//a; href="#" <% ampGt %>Default</&>
                         </td>
                     </tr>
                     <tr>
                        <td>
-                           <&| b//a; href="#"; style=ButtonStyles.primary &>Primary</&>
+                           <&|b//a; href="#"; style=ButtonStyles.primary &>Primary</&>
                        </td>
                        <td>
-<&| preFrag; &>b//a; href="#"; style=ButtonStyles.primary <% ampGt %>Primary</&>
+<&|preFrag; &>b//a; href="#"; style=ButtonStyles.primary <% ampGt %>Primary</&>
                        </td>
                     </tr>
                     <tr>
@@ -390,10 +400,10 @@ org.jamon.alias.b=bs//base/buttons;
                     </tr>
                     <tr>
                        <td>
-                           <&| b//a; href="#"; size=ButtonSizes.mini &>mini</&>
+                           <&|b//a; href="#"; size=ButtonSizes.mini &>mini</&>
                        </td>
                        <td>
-<&| preFrag; &>b//a; href="#"; size=ButtonSizes.mini <% ampGt %>mini</&>
+<&|preFrag; &>b//a; href="#"; size=ButtonSizes.mini <% ampGt %>mini</&>
                        </td>
                     </tr>
                     <tr>
@@ -425,11 +435,11 @@ org.jamon.alias.b=bs//base/buttons;
                 <tr>
                     <td>icon</td>
                     <td>null</td>
-                    <td>If set to a value from the <&| repo; url="base/Icons.java" &>Icons</&> enum, will add the corresponding icon.</td>
+                    <td>If set to a value from the <&|repo; url="base/Icons.java" &>Icons</&> enum, will add the corresponding icon.</td>
                 </tr>
                 <tr>
                     <td>iconColor</td>
-                    <td><&| repo; url="base/IconColors.java" &>IconColors</&>.AUTO</td>
+                    <td><&|repo; url="base/IconColors.java" &>IconColors</&>.AUTO</td>
                     <td>Forces the icon to be black or white. AUTO uses black icons for light button styles and white icons for dark button styles.</td>
                 </tr>
                 <tr>
@@ -450,15 +460,15 @@ org.jamon.alias.b=bs//base/buttons;
                         <& base//icon; icon=Icons.map_marker &>
                     </td>
                     <td class="span9">
-<&| preSimple &>base//icon; icon=Icons.map_marker</&>
+<&|preSimple &>base//icon; icon=Icons.map_marker</&>
                     </td>
                 </tr>
                 <tr>
                     <td class="span3">
-                        <&| b//a; href="#" &><& base//icon; icon=Icons.edit &> button</&>
+                        <&|b//a; href="#" &><& base//icon; icon=Icons.edit &> button</&>
                     </td>
                     <td class="span9">
-<&| preFrag &>b//a; href="#" &>&lt;&amp; base//icon; icon=Icons.edit <% "&>" %> button</&>                     
+<&|preFrag &>b//a; href="#" &>&lt;&amp; base//icon; icon=Icons.edit <% "&>" %> button</&>                     
                     </td>
                 </tr>
             </&>
@@ -475,14 +485,37 @@ org.jamon.alias.b=bs//base/buttons;
                 </tr>
             </&>
             <h1>Forms</h1>
+            <h2>controlGroup</h2>
+            <&|docTable; source="base/forms/controlGroup.jamon" &>
+                <tr>
+                    <td>label</td>
+                    <td>&nbsp;</td>
+                    <td>Body of label tag.</td>
+                </tr>
+                <tr>
+                    <td>forId</td>
+                    <td>&quot;&quot;</td>
+                    <td>The label&apos;s for attribute.</td>
+                </tr>
+                <tr>
+                    <td>helpInline</td>
+                    <td>&quot;&quot;</td>
+                    <td>Adds inline help text.</td>
+                </tr>
+                <tr>
+                    <td>helpBlock</td>
+                    <td>&quot;&quot;</td>
+                    <td>Adds help text on its own line.</td>
+                </tr>
+            </&>
             <h2>prepend</h2>
             <&|exampleTable &>
                 <tr>
-                    <td><&| f//prepend; text="eg" &><input /></&></td>
-                    <td><&| preFrag &>f//prepend; text="eg" <% "&><" %>input /&gt;</&></td>
+                    <td><&|f//prepend; text="eg" &><input /></&></td>
+                    <td><&|preFrag &>f//prepend; text="eg" <% "&><" %>input /&gt;</&></td>
                 </tr>
             </&>
-            <&| docTable; source="base/forms/prepend.jamon" &>
+            <&|docTable; source="base/forms/prepend.jamon" &>
                 <tr>
                     <td>text</td>
                     <td>&nbsp;</td>
@@ -493,7 +526,7 @@ org.jamon.alias.b=bs//base/buttons;
             <&|exampleTable &>
                 <tr>
                     <td><&|f//append; text="eg" &><input /></&></td>
-                    <td><&| preFrag &>f//append; text="eg" <% "&><" %>input /&gt;</&></td>
+                    <td><&|preFrag &>f//append; text="eg" <% "&><" %>input /&gt;</&></td>
                 </tr>
             </&>
             <&|docTable; source="base/forms/apppend.jamon" &>
@@ -507,7 +540,7 @@ org.jamon.alias.b=bs//base/buttons;
             <&|exampleTable &>
                 <tr>
                     <td class="span6"><form class="form-horizontal"><& f//actions; &></form></td>
-                    <td><&| preSimple &>f//actions;</&></td>
+                    <td><&|preSimple &>f//actions;</&></td>
                 </tr>
             </&>
             <&|docTable; source="base/forms/actions.jamon" &>
@@ -525,6 +558,11 @@ org.jamon.alias.b=bs//base/buttons;
                     <td>cancelHref</td>
                     <td>"#"</td>
                     <td>The cancel link's href attribute.</td>
+                </tr>
+                <tr>
+                    <td>cancelable</td>
+                    <td>true</td>
+                    <td>If false, there is no cancel button.</td>
                 </tr>
             </&>
             <h2>searchForm</h2>
@@ -555,7 +593,7 @@ org.jamon.alias.b=bs//base/buttons;
             <&|exampleTable &>
                 <tr> 
                     <td><& f//input; label="A field"; name="name"; id="aField"; state=States.warning; helpBlock="Check warnings" &></td>
-                    <td><% "<& f//input; label=\"A field\"; name=\"name\"; id=\"aField\"; state=States.warning; helpBlock=\"Check warnings\" &>" #H %></td>
+                    <td><&|preSimple; &>f//input; label="A field"; name="name"; id="aField"; state=States.warning; helpBlock="Check warnings"</&></td>
                 </tr>
             </&>
             <&|docTable; source="base/forms/input.jamon" &>
@@ -604,13 +642,23 @@ org.jamon.alias.b=bs//base/buttons;
                     <td>""</td>
                     <td>Help text added below the input</td>
                 </tr>
+                <tr>
+                    <td>required</td>
+                    <td>false</td>
+                    <td>If true, field marked required</td>
+                </tr>
+                <tr>
+                    <td>disabled</td>
+                    <td>false</td>
+                    <td>If true, field marked disabled</td>
+                </tr>
             </&>
         </section>
         
         <section id="components">
             <div class="page-header"><h1>Components</h1></div>
-                <&| s//row &>
-                    <&| s//span &>
+                <&|s//row &>
+                    <&|s//span &>
                             
                     </&>
                 </&>
