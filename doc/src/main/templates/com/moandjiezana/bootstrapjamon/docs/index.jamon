@@ -77,7 +77,7 @@ String source;
 <html>
   <head>
     <title>Bootstrap-Jamon Documentation</title>
-    <script src="js/jquery-1.7.1.js"></script>
+    <script src="js/jquery.js"></script>
     <& s//include; responsive=true &>
     <style>
         section {
@@ -94,7 +94,7 @@ String source;
     </style>
   </head>
   <body>
-    <&|n//navbar; fixedTop=true &>
+    <&|n//navbar; fixedTop=true; inverse=true &>
         <& n//navbarToggle &>
         <&|n//brand; href="#overview"&>Bootstrap-Jamon</&>
         <div class="nav-collapse">
@@ -129,10 +129,10 @@ String source;
                         <p>This is not a general purpose HTML library. It only eliminates the most boilerplate-heavy parts of Bootstrap.
                         In fact, it does not cover every single possibility, but only those where it can significantly reduce the amount of code.
                         If there&apos;s something the library doesn't cater for, don&apos;t hesitate to drop down to raw HTML.</p>
-                        <p>Bootstrap-Jamon is currently based on Bootstrap 2.0.1</p>
+                        <p>Bootstrap-Jamon is currently based on Bootstrap 2.2.2</p>
                     </&>
                     <&|s//span4; offset=1 &>
-                        <&|b//a; href="http://github.com/mwanji/bootstrap-jamon"; style=ButtonStyles.primary; size=ButtonSizes.large &>View source on Github</&>
+                        <&|b//a; href="http://github.com/mwanji/bootstrap-jamon"; style=ButtonStyles.primary; size=ButtonSizes.large &>View on Github</&>
                         <p class="help-block">
                             This documentation is itself written in Bootstrap-Jamon and is a good <a href="https://github.com/mwanji/bootstrap-jamon/blob/master/doc/src/main/templates/com/moandjiezana/bootstrapjamon/docs/index.jamon">source</a> of examples.
                         </p>
@@ -219,22 +219,22 @@ org.jamon.alias.b=/com/moandjiezana/bootstrapjamon/base/buttons
                     <tr>
                     	<td>fileName</td>
                     	<td>"bootstrap"</td>
-                    	<td>The base file name used to construct the CSS, JS and responsive asset paths.</td>
+                    	<td>The base file name used to construct the CSS and JS asset paths.</td>
                     </tr>
                     <tr>
                         <td>cssFileName</td>
-                        <td>The value of <code>fileName</code></td>
+                        <td><code>fileName</code></td>
                         <td>The file name to which .css will be appended.</td>
                     </tr>
                     <tr>
                         <td>jsFileName</td>
-                        <td>The value of <code>fileName</code></td>
+                        <td><code>fileName</code></td>
                         <td>The file name to which .js will be appended.</td>
                     </tr>
                     <tr>
                         <td>responsive</td>
                         <td>false</td>
-                        <td>If true, bootstrap-responsive.css will be included.</td>
+                        <td>If true, the responsive CSS will be included, using <code>cssFileName</code> as the base name.</td>
                     </tr>
                     <tr>
                         <td>bodyPadding</td>
@@ -671,6 +671,11 @@ org.jamon.alias.b=/com/moandjiezana/bootstrapjamon/base/buttons
                     <td>fixedTop</td>
                     <td>false</td>
                     <td>If true, adds the <code>.navbar-fixed-top</code> class.</td>
+                </tr>
+                <tr>
+                    <td>inverse</td>
+                    <td>false</td>
+                    <td>If true, adds the <code>.navbar-inverse</code> class.</td>
                 </tr>
             </&>
             <h2>dropdown</h2>

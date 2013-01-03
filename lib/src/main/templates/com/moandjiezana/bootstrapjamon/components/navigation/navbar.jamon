@@ -1,8 +1,9 @@
 <%frag content />
 <%args>
 boolean fixedTop = false;
+boolean inverse = false;
 </%args>
-<div class="navbar<%if fixedTop %> navbar-fixed-top</%if>">
+<div class="navbar<%if fixedTop %> navbar-fixed-top</%if><%if inverse %> navbar-inverse</%if>">
     <div class="navbar-inner">
         <div class="container">
             <& content &>
