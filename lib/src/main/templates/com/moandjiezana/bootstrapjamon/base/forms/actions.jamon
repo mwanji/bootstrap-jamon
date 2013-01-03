@@ -2,8 +2,9 @@
 String save = null;
 String cancel = "Cancel";
 String cancelHref = "#";
+boolean cancelable = true;
 </%args>
 <div class="form-actions">
     <input type="submit" class="btn btn-primary"<%if save != null %> value="<% save %>"</%if> />
-    <&|../buttons/a; href=cancelHref &><% cancel %></&>
+    <%if cancelable %><&|../buttons/a; href=cancelHref &><% cancel %></&></%if>
 </div>
