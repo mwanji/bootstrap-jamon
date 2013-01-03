@@ -8,7 +8,9 @@ String classes = "";
 States state = States.NONE;
 String helpInline = "";
 String helpBlock = "";
+boolean required = false;
+boolean disabled = false;
 </%args>
 <&| controlGroup; label=label; forId=id; state=state; helpInline=helpInline; helpBlock=helpBlock &>
-    <input type="<% type %>" id="<% id %>" class="<%if !classes.isEmpty() %><% classes %></%if>" name="<% name %>" value="<% value %>"/>
+    <input type="<% type %>" id="<% id %>" class="<%if !classes.isEmpty() %><% classes %></%if>" name="<% name %>" value="<% value %>" <%if required %>required="required"</%if> <%if disabled %>disabled="disabled"</%if>/>
 </&>
