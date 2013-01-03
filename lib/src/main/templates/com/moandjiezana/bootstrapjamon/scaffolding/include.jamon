@@ -1,15 +1,20 @@
 <%args>
 String bootstrapPath = "";
-String cssFileName = "bootstrap";
-String jsFileName = "bootstrap";
+String fileName = "bootstrap";
+String cssFileName = "";
+String jsFileName = "";
 boolean responsive = false;
 int bodyPadding = 0;
 boolean ieShim = true;
 boolean meta = true;
 </%args>
-<%java String fullBootstrapPath = !bootstrapPath.isEmpty() ? bootstrapPath + "/" : ""; %>
-<script type="text/javascript" src="<% fullBootstrapPath %>js/<% jsFileName %>.js"></script>
-<link rel="stylesheet" href="<% fullBootstrapPath %>css/<% cssFileName %>.css"/>
+<%java
+String fullBootstrapPath = !bootstrapPath.isEmpty() ? bootstrapPath + "/" : "";
+String realCssFileName = !cssFileName.isEmpty() ? cssFileName : fileName;
+String realJsFileName = !jsFileName.isEmpty() ? jsFileName : fileName;
+%>
+<script type="text/javascript" src="<% fullBootstrapPath %>js/<% realJsFileName %>.js"></script>
+<link rel="stylesheet" href="<% fullBootstrapPath %>css/<% realCssFileName %>.css"/>
 <%if bodyPadding > 0 %>
 <style>
     body {
@@ -17,7 +22,7 @@ boolean meta = true;
     }
 </style>
 </%if>
-<%if responsive %><link rel="stylesheet" href="<% fullBootstrapPath %>css/<% cssFileName %>-responsive.css"/></%if>
+<%if responsive %><link rel="stylesheet" href="<% fullBootstrapPath %>css/<% realCssFileName %>-responsive.css"/></%if>
 <%if meta %>
 <%if ieShim %>
 <!--[if lt IE 9]>
