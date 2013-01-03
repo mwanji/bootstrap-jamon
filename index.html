@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="js/jquery-1.7.1.js"></script>
+    <title>Bootstrap-Jamon Documentation</title>
+    <script src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
 <link rel="stylesheet" href="css/bootstrap.css"/>
 
@@ -29,7 +30,7 @@
     </style>
   </head>
   <body>
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar navbar-fixed-top navbar-inverse">
     <div class="navbar-inner">
         <div class="container">
             
@@ -111,14 +112,14 @@
                         <p>This is not a general purpose HTML library. It only eliminates the most boilerplate-heavy parts of Bootstrap.
                         In fact, it does not cover every single possibility, but only those where it can significantly reduce the amount of code.
                         If there&apos;s something the library doesn't cater for, don&apos;t hesitate to drop down to raw HTML.</p>
-                        <p>Bootstrap-Jamon is currently based on Bootstrap 2.0.1</p>
+                        <p>Bootstrap-Jamon is currently based on Bootstrap 2.2.2</p>
                      
 </div>
                     <div class="span4 offset1">
 
-                        <a href="http://github.com/mwanji/bootstrap-jamon" class="btn btn-primary btn-large">View source on Github</a>
+                        <a href="http://github.com/mwanji/bootstrap-jamon" class="btn btn-primary btn-large">View on Github</a>
                         <p class="help-block">
-                            This documentation is itself written in Bootstrap-Jamon and is a good source of examples.
+                            This documentation is itself written in Bootstrap-Jamon and is a good <a href="https://github.com/mwanji/bootstrap-jamon/blob/master/doc/src/main/templates/com/moandjiezana/bootstrapjamon/docs/index.jamon">source</a> of examples.
                         </p>
                      
 </div>
@@ -160,12 +161,12 @@ b=bs//base/buttons;
 
                         For jamon.properties:
 <pre>
-org.jamon.alias.bs=/com/moandjiezana/bootstrapjamon;
-org.jamon.alias.base=bs//base;
-org.jamon.alias.s=bs//scaffolding;
-org.jamon.alias.n=bs//components/navigation;
-org.jamon.alias.f=base//forms;
-org.jamon.alias.b=bs//base/buttons;
+org.jamon.alias.bs=/com/moandjiezana/bootstrapjamon
+org.jamon.alias.base=/com/moandjiezana/bootstrapjamon/base
+org.jamon.alias.s=/com/moandjiezana/bootstrapjamon/scaffolding
+org.jamon.alias.n=/com/moandjiezana/bootstrapjamon/components/navigation
+org.jamon.alias.f=/com/moandjiezana/bootstrapjamon/base/forms
+org.jamon.alias.b=/com/moandjiezana/bootstrapjamon/base/buttons
 </pre>
                      
 </div>
@@ -227,22 +228,28 @@ org.jamon.alias.b=bs//base/buttons;
                         <td>
                             The root path to Bootstrap's assets. The css, js and img folders should be found here.
                             The default will point to the current folder.
+                            Should not end with a slash.
                         </td>
                     </tr>
                     <tr>
+                    	<td>fileName</td>
+                    	<td>"bootstrap"</td>
+                    	<td>The base file name used to construct the CSS and JS asset paths.</td>
+                    </tr>
+                    <tr>
                         <td>cssFileName</td>
-                        <td>"bootstrap"</td>
+                        <td><code>fileName</code></td>
                         <td>The file name to which .css will be appended.</td>
                     </tr>
                     <tr>
                         <td>jsFileName</td>
-                        <td>"bootstrap"</td>
+                        <td><code>fileName</code></td>
                         <td>The file name to which .js will be appended.</td>
                     </tr>
                     <tr>
                         <td>responsive</td>
                         <td>false</td>
-                        <td>If true, bootstrap-responsive.css will be included.</td>
+                        <td>If true, the responsive CSS will be included, using <code>cssFileName</code> as the base name.</td>
                     </tr>
                     <tr>
                         <td>bodyPadding</td>
@@ -648,6 +655,42 @@ org.jamon.alias.b=bs//base/buttons;
 <p>(<a href="https://github.com/mwanji/bootstrap-jamon/blob/master/lib/src/main/templates/com/moandjiezana/bootstrapjamon/base/icon.jamon">view source</a>)</p>
 
             <h1>Forms</h1>
+            <h2>controlGroup</h2>
+            <table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Attribute</th>
+            <th>Default</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+                <tr>
+                    <td>label</td>
+                    <td>&nbsp;</td>
+                    <td>Body of label tag.</td>
+                </tr>
+                <tr>
+                    <td>forId</td>
+                    <td>&quot;&quot;</td>
+                    <td>The label&apos;s for attribute.</td>
+                </tr>
+                <tr>
+                    <td>helpInline</td>
+                    <td>&quot;&quot;</td>
+                    <td>Adds inline help text.</td>
+                </tr>
+                <tr>
+                    <td>helpBlock</td>
+                    <td>&quot;&quot;</td>
+                    <td>Adds help text on its own line.</td>
+                </tr>
+            
+    </tbody>
+</table>
+<p>(<a href="https://github.com/mwanji/bootstrap-jamon/blob/master/lib/src/main/templates/com/moandjiezana/bootstrapjamon/base/forms/controlGroup.jamon">view source</a>)</p>
+
             <h2>prepend</h2>
             <table class="table">
     <thead>
@@ -780,6 +823,11 @@ org.jamon.alias.b=bs//base/buttons;
                     <td>"#"</td>
                     <td>The cancel link's href attribute.</td>
                 </tr>
+                <tr>
+                    <td>cancelable</td>
+                    <td>true</td>
+                    <td>If false, there is no cancel button.</td>
+                </tr>
             
     </tbody>
 </table>
@@ -852,7 +900,7 @@ org.jamon.alias.b=bs//base/buttons;
     <label class="control-label" for="aField">A field</label>
     <div class="controls">
         
-    <input type="text" id="aField" class="" name="name" value=""/>
+    <input type="text" id="aField" class="" name="name" value=""  />
 
         
         
@@ -860,7 +908,10 @@ org.jamon.alias.b=bs//base/buttons;
         
     </div>
 </div></td>
-                    <td>&lt;&amp; f//input; label=&quot;A field&quot;; name=&quot;name&quot;; id=&quot;aField&quot;; state=States.warning; helpBlock=&quot;Check warnings&quot; &amp;&gt;</td>
+                    <td><pre>
+&lt;&amp; f//input; label="A field"; name="name"; id="aField"; state=States.warning; helpBlock="Check warnings" &amp;&gt;
+</pre>
+</td>
                 </tr>
             
     </tbody>
@@ -921,6 +972,16 @@ org.jamon.alias.b=bs//base/buttons;
                     <td>""</td>
                     <td>Help text added below the input</td>
                 </tr>
+                <tr>
+                    <td>required</td>
+                    <td>false</td>
+                    <td>If true, field marked required</td>
+                </tr>
+                <tr>
+                    <td>disabled</td>
+                    <td>false</td>
+                    <td>If true, field marked disabled</td>
+                </tr>
             
     </tbody>
 </table>
@@ -957,6 +1018,11 @@ org.jamon.alias.b=bs//base/buttons;
                     <td>fixedTop</td>
                     <td>false</td>
                     <td>If true, adds the <code>.navbar-fixed-top</code> class.</td>
+                </tr>
+                <tr>
+                    <td>inverse</td>
+                    <td>false</td>
+                    <td>If true, adds the <code>.navbar-inverse</code> class.</td>
                 </tr>
             
     </tbody>
