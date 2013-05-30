@@ -129,7 +129,7 @@ String source;
                         <p>This is not a general purpose HTML library. It only eliminates the most boilerplate-heavy parts of Bootstrap.
                         In fact, it does not cover every single possibility, but only those where it can significantly reduce the amount of code.
                         If there&apos;s something the library doesn't cater for, don&apos;t hesitate to drop down to raw HTML.</p>
-                        <p>Bootstrap-Jamon is currently based on Bootstrap 2.2.2</p>
+                        <p>Bootstrap-Jamon is currently based on Bootstrap 2.3.2</p>
                     </&>
                     <&|s//span4; offset=1 &>
                         <&|b//a; href="http://github.com/mwanji/bootstrap-jamon"; style=ButtonStyles.primary; size=ButtonSizes.large &>View on Github</&>
@@ -511,8 +511,8 @@ org.jamon.alias.b=/com/moandjiezana/bootstrapjamon/base/buttons
             <h2>prepend</h2>
             <&|exampleTable &>
                 <tr>
-                    <td><&|f//prepend; text="eg" &><input /></&></td>
-                    <td><&|preFrag &>f//prepend; text="eg" <% "&><" %>input /&gt;</&></td>
+                    <td><&|f//prepend; text="eg" &><input type="text" /></&></td>
+                    <td><&|preFrag &>f//prepend; text="eg" <% "&><" %>input type="text" /&gt;</&></td>
                 </tr>
             </&>
             <&|docTable; source="base/forms/prepend.jamon" &>
@@ -525,8 +525,8 @@ org.jamon.alias.b=/com/moandjiezana/bootstrapjamon/base/buttons
             <h2>append</h2>
             <&|exampleTable &>
                 <tr>
-                    <td><&|f//append; text="eg" &><input /></&></td>
-                    <td><&|preFrag &>f//append; text="eg" <% "&><" %>input /&gt;</&></td>
+                    <td><&|f//append; text="eg" &><input type="text" /></&></td>
+                    <td><&|preFrag &>f//append; text="eg" <% "&><" %>input type="text" /&gt;</&></td>
                 </tr>
             </&>
             <&|docTable; source="base/forms/apppend.jamon" &>
