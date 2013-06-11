@@ -1,0 +1,19 @@
+<%import>
+com.moandjiezana.bootstrapjamon.base.*;
+</%import>
+<%frag content />
+<%args>
+String type = "button";
+ButtonStyles style = ButtonStyles.none;
+ButtonSizes size = ButtonSizes.none;
+Icons icon = null;
+IconColors iconColor = IconColors.AUTO;
+boolean disabled = false;
+String extraClasses = "";
+</%args> 
+<button type="<% type %>" class="btn<% style %><% size %>\
+<%if !extraClasses.isEmpty() %> <% extraClasses %></%if>"\
+<%if disabled %> disabled="disabled"</%if>\
+>\
+<%if icon != null %><& ../icon; icon=icon; white=style.usesWhiteIcon(iconColor) &> </%if>\
+<& content &></button>
