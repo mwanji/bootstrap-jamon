@@ -3,7 +3,7 @@
 
 	<groupId>com.moandjiezana.jamon</groupId>
 	<artifactId>jamon-bootstrap</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>0.1.0</version>
 	<packaging>jar</packaging>
 
 	<name>jamon-bootstrap</name>
@@ -85,7 +85,7 @@
     <connection>scm:git:git@github.com:mwanji/jamon-bootstrap.git</connection>
     <developerConnection>scm:git:git@github.com:mwanji/jamon-bootstrap.git</developerConnection>
     <url>https://github.com/mwanji/jamon-bootstrap</url>
-    <tag>HEAD</tag>
+    <tag>jamon-bootstrap-0.1.0</tag>
   </scm>
   <issueManagement>
     <system>Github Issues</system>
